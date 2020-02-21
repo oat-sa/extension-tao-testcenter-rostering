@@ -18,12 +18,12 @@
  *
  *
  */
-namespace oat\taoTestCenter\model\eligibility;
+namespace oat\taoTestCenterRostering\model\eligibility;
 
 /**
  * Service to manage eligible deliveries
  */
 class IneligibileException extends \common_Exception
 {
-        
+
 }

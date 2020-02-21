@@ -18,18 +18,18 @@
  *
  */
 
-namespace oat\taoTestCenter\model\gui;
+namespace oat\taoTestCenterRostering\model\gui;
 
 use oat\generis\model\user\UserRdf;
-use oat\taoTestCenter\model\gui\form\formFactory\FormFactory;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactory;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 /**
  * Class TestcenterAdministratorUserFormFactory
  *
  * Generate a form for assignation of Administrator to test center
  *
- * @package oat\taoTestCenter\model\gui
+ * @package oat\taoTestCenterRoastering\model\gui
  */
 class TestcenterAdministratorUserFormFactory extends FormFactory
 {

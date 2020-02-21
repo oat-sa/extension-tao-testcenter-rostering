@@ -19,7 +19,7 @@
  * @author Ilya Yarkavets <ilya@taotesting.com>
  */
 
-namespace oat\taoTestCenter\model\event;
+namespace oat\taoTestCenterRostering\model\event;
 
 use oat\oatbox\event\Event;
 

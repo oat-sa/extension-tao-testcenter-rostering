@@ -19,12 +19,12 @@
  *
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use oat\tao\helpers\UserHelper;
 use oat\taoClientDiagnostic\controller\CompatibilityChecker;
 use oat\taoProctoring\helpers\TestCenterHelper;
-use oat\taoTestCenter\model\DiagnosticStorage;
+use oat\taoTestCenterRostering\model\DiagnosticStorage;
 
 /**
  * Class CompatibilityChecker

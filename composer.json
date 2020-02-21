@@ -1,5 +1,5 @@
 {
-  "name": "oat-sa/extension-tao-testcenter",
+  "name": "oat-sa/extension-tao-testcenter-rostering",
   "description": "",
   "type": "tao-extension",
   "authors": [
@@ -16,7 +16,7 @@
     "GPL-2.0-only"
   ],
   "extra": {
-    "tao-extension-name": "taoTestCenter"
+    "tao-extension-name": "taoTestCenterRostering"
   },
   "minimum-stability": "dev",
   "require": {
@@ -24,7 +24,7 @@
   },
   "autoload": {
     "psr-4": {
-      "oat\\taoTestCenter\\": ""
+      "oat\\taoTestCenterRostering\\": ""
     }
   }
 }

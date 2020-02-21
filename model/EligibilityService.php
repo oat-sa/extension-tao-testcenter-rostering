@@ -18,7 +18,7 @@
  *
  *
  */
-namespace oat\taoTestCenter\model;
+namespace oat\taoTestCenterRostering\model;
 
 use \core_kernel_classes_Resource as Resource;
 use core_kernel_classes_Class;
@@ -33,12 +33,12 @@ use oat\taoDelivery\model\execution\DeliveryExecutionInterface;
 use oat\taoDelivery\model\execution\ServiceProxy;
 use oat\taoProctoring\model\monitorCache\DeliveryMonitoringData;
 use oat\taoProctoring\model\ProctorService;
-use oat\taoTestCenter\model\eligibility\EligiblityChanged;
-use oat\taoTestCenter\model\execution\TcDeliveryExecutionContext;
+use oat\taoTestCenterRostering\model\eligibility\EligiblityChanged;
+use oat\taoTestCenterRostering\model\execution\TcDeliveryExecutionContext;
 use oat\taoTestTaker\models\events\TestTakerRemovedEvent;
 use oat\oatbox\user\User;
-use oat\taoTestCenter\model\eligibility\IneligibileException;
-use oat\taoTestCenter\model\proctoring\TestCenterMonitoringService;
+use oat\taoTestCenterRostering\model\eligibility\IneligibileException;
+use oat\taoTestCenterRostering\model\proctoring\TestCenterMonitoringService;
 use oat\taoProctoring\model\monitorCache\DeliveryMonitoringService;
 use oat\taoDelivery\model\AssignmentService;
 use oat\taoDelivery\models\classes\execution\event\DeliveryExecutionCreated;
@@ -51,7 +51,7 @@ class EligibilityService extends ConfigurableService
 {
     use OntologyAwareTrait;
 
-    const SERVICE_ID = 'taoTestCenter/EligibilityService';
+    const SERVICE_ID = 'taoTestCenterRostering/EligibilityService';
 
     const CLASS_URI = 'http://www.tao.lu/Ontologies/TAOProctor.rdf#DeliveryEligibility';
 
@@ -79,7 +79,7 @@ class EligibilityService extends ConfigurableService
     {
         return $this->getClass(self::CLASS_URI);
     }
-    
+
     /**
      * @return TestCenterAssignment
      */
@@ -90,10 +90,10 @@ class EligibilityService extends ConfigurableService
         }
         return $assignmentService;
     }
-    
+
     /**
      * Establishes a new eligibility
-     * 
+     *
      * @param Resource $testCenter
      * @param Resource $delivery
      * @return boolean
@@ -153,7 +153,7 @@ class EligibilityService extends ConfigurableService
         ), array('recursive' => false, 'like' => false));
 
         $deliveryProperty = new Property(self::PROPERTY_DELIVERY_URI);
-        
+
         $deliveries = array();
         foreach ($eligibles as $eligible) {
             $delivery = $eligible->getOnePropertyValue($deliveryProperty);
@@ -225,7 +225,7 @@ class EligibilityService extends ConfigurableService
 
     /**
      * Removes an eligibility by testCenter and delivery
-     * 
+     *
      * @param Resource $testCenter
      * @param Resource $delivery
      * @throws IneligibileException|\common_exception_InconsistentData
@@ -254,10 +254,10 @@ class EligibilityService extends ConfigurableService
         }
         return $deletion;
     }
-    
+
     /**
      * Return ids of test-takers that are eligble in the specified context
-     * 
+     *
      * @param Resource $testCenter
      * @param Resource $delivery
      * @return string[] identifiers of the test-takers
@@ -304,10 +304,10 @@ class EligibilityService extends ConfigurableService
 
         return $result;
     }
-    
+
     /**
      * Returns the eligibility representing the link, or null if not found
-     *  
+     *
      * @param Resource $testCenter
      * @param Resource $delivery
      * @throws \common_exception_InconsistentData
@@ -394,7 +394,7 @@ class EligibilityService extends ConfigurableService
     public function canByPassProctor(Resource $eligibility)
     {
         $canByPass = $eligibility->getOnePropertyValue(new Property(self::PROPERTY_BYPASSPROCTOR_URI));
-        return !is_null($canByPass) ? ($canByPass->getUri() == self::BOOLEAN_TRUE) : false;    
+        return !is_null($canByPass) ? ($canByPass->getUri() == self::BOOLEAN_TRUE) : false;
     }
 
     /**
@@ -435,7 +435,7 @@ class EligibilityService extends ConfigurableService
     {
         return $this->hasOption(self::OPTION_MANAGEABLE) && $this->getOption(self::OPTION_MANAGEABLE) === true;
     }
-    
+
     public function deliveryExecutionCreated(DeliveryExecutionCreated $event)
     {
         $monitoringService = $this->getServiceLocator()->get(DeliveryMonitoringService::SERVICE_ID);
@@ -469,7 +469,7 @@ class EligibilityService extends ConfigurableService
         $monitoringService = $this->getServiceLocator()->get(DeliveryMonitoringService::SERVICE_ID);
 
         $eligiblity = $event->getEligiblity();
-        
+
         $normalize = function ($item) {
             return ($item instanceof \core_kernel_classes_Resource) ? $item->getUri() : $item;
         };
@@ -520,7 +520,7 @@ class EligibilityService extends ConfigurableService
             $user = $event->jsonSerialize();
             $userUri = $user['uri'];
         }
-        
+
         $eligibilities = $this->getEligibilityByTestTaker($userUri);
 
         foreach ($eligibilities as $eligibility){

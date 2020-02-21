@@ -17,16 +17,16 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use common_exception_MissingParameter;
 use common_exception_RestApi;
 use common_exception_ResourceNotFound;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 /**
  * Class AbstractRestController
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @author Aleh Hutnikau, <hutnikau@a1pt.com>
  * @OA\Info(title="TAO Test Center API", version="0.1")
  */

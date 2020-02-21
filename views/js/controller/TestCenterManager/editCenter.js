@@ -21,10 +21,10 @@ define([
     'i18n',
     'layout/loading-bar',
     'ui/feedback',
-    'taoTestCenter/component/eligibilityEditor',
-    'taoTestCenter/component/eligibilityTable',
-    'taoTestCenter/component/eligibilityImport',
-    'taoTestCenter/provider/eligibility'
+    'taoTestCenterRostering/component/eligibilityEditor',
+    'taoTestCenterRostering/component/eligibilityTable',
+    'taoTestCenterRostering/component/eligibilityImport',
+    'taoTestCenterRostering/provider/eligibility'
 ], function( $, _, __, loadingBar, feedback, eligibilityEditorFactory, eligibilityTableFactory, eligibilityImportFactory, eligibilityProvider){
 'use strict';
 

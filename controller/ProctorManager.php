@@ -17,21 +17,21 @@
  * Copyright (c) 2015 (original work) Open Assessment Technologies SA ;
  *
  */
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use oat\generis\model\GenerisRdf;
 use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\event\EventManager;
 use oat\tao\helpers\UserHelper;
 use oat\taoProctoring\helpers\DataTableHelper;
-use oat\taoTestCenter\model\event\ProctorCreatedEvent;
+use oat\taoTestCenterRostering\model\event\ProctorCreatedEvent;
 use \tao_helpers_Uri;
 use \tao_helpers_Request;
 use common_session_SessionManager as SessionManager;
-use oat\taoTestCenter\controller\form\AddProctor;
-use oat\taoTestCenter\model\ProctorManagementService;
+use oat\taoTestCenterRostering\controller\form\AddProctor;
+use oat\taoTestCenterRostering\model\ProctorManagementService;
 use oat\taoProctoring\model\textConverter\ProctoringTextConverterTrait;
-use oat\taoTestCenter\helper\TestCenterHelper;
+use oat\taoTestCenterRostering\helper\TestCenterHelper;
 use common_exception_BadRequest;
 use tao_helpers_form_FormContainer as FormContainer;
 
@@ -39,7 +39,7 @@ use tao_helpers_form_FormContainer as FormContainer;
  * Proctor manager controller
  *
  * @author Open Assessment Technologies SA
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @license GPL-2.0
  *
  */

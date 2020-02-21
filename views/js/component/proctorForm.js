@@ -27,7 +27,7 @@ define([
     'ui/feedback',
     'ui/component',
     'taoProctoring/helper/textConverter',
-    'tpl!taoTestCenter/component/proctorForm/form'
+    'tpl!taoTestCenterRostering/component/proctorForm/form'
 ], function(_, $, __, helpers, users, feedback, component, textConverter, formTpl){
     'use strict';
 
@@ -36,13 +36,13 @@ define([
     //service urls:
     var proctorFormUrl = helpers._url('createProctorForm', 'ProctorManager', 'taoTestCenter');
     var proctorLoginCheckUrl = helpers._url('checkLogin', 'ProctorManager', 'taoTestCenter');
-    
+
     //initialize legacy components
     helpers.init();
-    
+
     /**
      * Render the form from the server provided data
-     * 
+     *
      * @param {JQuery} $container
      * @param {Object} formData
      */
@@ -52,10 +52,10 @@ define([
         }));
         users.checkLogin(formData.loginId, proctorLoginCheckUrl);
     }
-    
+
     /**
      * Create a proctor creation form
-     * 
+     *
      * @param {type} config
      * @param {JQuery} config.renderTo - the jQuery container it should be rendered to
      * @param {Object} config.testCenterList - the test center list component

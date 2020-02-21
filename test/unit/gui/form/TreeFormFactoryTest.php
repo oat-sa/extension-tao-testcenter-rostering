@@ -17,11 +17,11 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA;
  *
  */
-namespace oat\taoTestCenter\test\unit\gui\form;
+namespace oat\taoTestCenterRostering\test\unit\gui\form;
 
 use core_kernel_classes_Resource;
-use oat\taoTestCenter\model\gui\form\formFactory\FormFactoryInterface;
-use oat\taoTestCenter\model\gui\form\TreeFormFactory;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactoryInterface;
+use oat\taoTestCenterRostering\model\gui\form\TreeFormFactory;
 use tao_helpers_form_GenerisTreeForm;
 use oat\generis\test\TestCase;
 

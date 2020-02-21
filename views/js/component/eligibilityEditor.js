@@ -25,7 +25,7 @@ define([
     'uri',
     'ui/component',
     'generis.tree.select',
-    'tpl!taoTestCenter/component/eligibilityEditor/layout',
+    'tpl!taoTestCenterRostering/component/eligibilityEditor/layout',
     'ui/feedback',
     'ui/modal',
     'css!taoTestCenterCss/eligibilityEditor'

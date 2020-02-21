@@ -18,15 +18,15 @@
  *
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
-use oat\taoTestCenter\helper\TestCenterHelper;
+use oat\taoTestCenterRostering\helper\TestCenterHelper;
 
 /**
  * Proctoring Diagnostic controller for the readiness check screen
  *
  * @author Open Assessment Technologies SA
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @license GPL-2.0
  *
  */
@@ -108,7 +108,7 @@ class Diagnostic extends SimplePageModule
             'success' => TestCenterHelper::removeDiagnostic($testCenter, $id)
         ]);
     }
-    
+
     /**
      * Get the requested test center resource
      * Use this to identify which test center is currently being selected buy the proctor
@@ -119,7 +119,7 @@ class Diagnostic extends SimplePageModule
     protected function getCurrentTestCenter()
     {
         if($this->hasRequestParameter('testCenter')){
-    
+
             //get test center resource from its uri
             $testCenterUri           = $this->getRequestParameter('testCenter');
             return TestCenterHelper::getTestCenter($testCenterUri);

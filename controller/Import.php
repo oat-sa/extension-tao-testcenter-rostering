@@ -18,12 +18,12 @@
  *
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use oat\generis\model\OntologyRdf;
 use oat\tao\model\upload\UploadService;
-use oat\taoTestCenter\controller\form\CsvImporter;
-use oat\taoTestCenter\model\import\TestCenterCsvImporterFactory;
+use oat\taoTestCenterRostering\controller\form\CsvImporter;
+use oat\taoTestCenterRostering\model\import\TestCenterCsvImporterFactory;
 use tao_actions_form_Import;
 use tao_helpers_form_FormContainer as FormContainer;
 

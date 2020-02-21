@@ -18,7 +18,7 @@
  *
  */
 
-namespace oat\taoTestCenter\model\routing;
+namespace oat\taoTestCenterRostering\model\routing;
 
 use oat\tao\model\routing\AbstractApiRoute;
 
@@ -28,7 +28,7 @@ use oat\tao\model\routing\AbstractApiRoute;
  */
 class ApiRoute extends AbstractApiRoute
 {
-    const REST_CONTROLLER_PREFIX = 'oat\\taoTestCenter\\controller\\Rest';
+    const REST_CONTROLLER_PREFIX = 'oat\\taoTestCenterRostering\\controller\\Rest';
 
     /**
      * @inheritdoc

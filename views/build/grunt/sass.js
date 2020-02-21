@@ -4,7 +4,7 @@ module.exports = function(grunt) {
     var sass    = grunt.config('sass') || {};
     var watch   = grunt.config('watch') || {};
     var notify  = grunt.config('notify') || {};
-    var root    = grunt.option('root') + '/taoTestCenter/views/';
+    var root    = grunt.option('root') + '/taoTestCenterRostering/views/';
 
     sass.taotestcenter = { };
     sass.taotestcenter.files = { };

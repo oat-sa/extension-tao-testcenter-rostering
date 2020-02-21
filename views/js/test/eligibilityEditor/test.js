@@ -18,7 +18,7 @@
 define([
     'jquery',
     'lodash',
-    'taoTestCenter/component/eligibilityEditor'
+    'taoTestCenterRostering/component/eligibilityEditor'
 ], function($, _, eligibilityEditorFactory) {
     'use strict';
 
@@ -80,8 +80,8 @@ define([
                 ready();
             })
             .add($container, {
-                dataUrl: '/taoTestCenter/views/js/test/eligibilityEditor/data.json',
-                testTakerDataUrl: '/taoTestCenter/views/js/test/eligibilityEditor/testTakers.json',
+                dataUrl: '/taoTestCenterRostering/views/js/test/eligibilityEditor/data.json',
+                testTakerDataUrl: '/taoTestCenterRostering/views/js/test/eligibilityEditor/testTakers.json',
                 isDacEnabled: false
             });
     });
@@ -120,8 +120,8 @@ define([
                 ready();
             })
             .add($container, {
-                dataUrl: '/taoTestCenter/views/js/test/eligibilityEditor/data.json',
-                testTakerDataUrl: '/taoTestCenter/views/js/test/eligibilityEditor/testTakers.json',
+                dataUrl: '/taoTestCenterRostering/views/js/test/eligibilityEditor/data.json',
+                testTakerDataUrl: '/taoTestCenterRostering/views/js/test/eligibilityEditor/testTakers.json',
                 isDacEnabled: false
             });
     });
@@ -145,8 +145,8 @@ define([
                 ready();
             })
             .add($container, {
-                dataUrl: '/taoTestCenter/views/js/test/eligibilityEditor/data.json',
-                testTakerDataUrl: '/taoTestCenter/views/js/test/eligibilityEditor/testTakers.json',
+                dataUrl: '/taoTestCenterRostering/views/js/test/eligibilityEditor/data.json',
+                testTakerDataUrl: '/taoTestCenterRostering/views/js/test/eligibilityEditor/testTakers.json',
                 isDacEnabled: false
             });
     });
@@ -183,7 +183,7 @@ define([
                 ready();
             })
             .edit($container, 'Foolivery', [], {
-                testTakerDataUrl: '/taoTestCenter/views/js/test/eligibilityEditor/testTakers.json',
+                testTakerDataUrl: '/taoTestCenterRostering/views/js/test/eligibilityEditor/testTakers.json',
                 isDacEnabled: false
             });
     });
@@ -207,7 +207,7 @@ define([
                 ready();
             })
             .edit($container, 'Foolivery', [], {
-                testTakerDataUrl: '/taoTestCenter/views/js/test/eligibilityEditor/testTakers.json',
+                testTakerDataUrl: '/taoTestCenterRostering/views/js/test/eligibilityEditor/testTakers.json',
                 isDacEnabled: false
             });
     });

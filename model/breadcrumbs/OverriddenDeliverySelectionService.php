@@ -18,10 +18,10 @@
  *
  */
 
-namespace oat\taoTestCenter\model\breadcrumbs;
+namespace oat\taoTestCenterRostering\model\breadcrumbs;
 
 use oat\taoProctoring\model\breadcrumbs\DeliverySelectionService;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 /**
  * Provides breadcrumbs for the DeliverySelection controller.

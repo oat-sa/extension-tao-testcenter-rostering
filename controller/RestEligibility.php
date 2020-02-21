@@ -17,21 +17,21 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use common_exception_MissingParameter;
 use common_exception_RestApi;
 use common_exception_ResourceNotFound;
 use Exception;
 use oat\generis\model\resource\exception\DuplicateResourceException;
-use oat\taoTestCenter\model\eligibility\Eligibility;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\eligibility\Eligibility;
+use oat\taoTestCenterRostering\model\EligibilityService;
 use oat\taoDeliveryRdf\model\DeliveryAssemblyService;
 use oat\tao\model\TaoOntology;
 
 /**
  * Class RestEligibility
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class RestEligibility extends AbstractRestController
@@ -46,7 +46,7 @@ class RestEligibility extends AbstractRestController
     /**
      * @throws \common_exception_NotImplemented
      * @OA\Post(
-     *     path="/taoTestCenter/api/eligibility",
+     *     path="/taoTestCenterRostering/api/eligibility",
      *     tags={"eligibility"},
      *     summary="Create new eligibility",
      *     description="Create new test center eligibility by test center uri and delivery",
@@ -173,7 +173,7 @@ class RestEligibility extends AbstractRestController
     /**
      * @throws \common_exception_NotImplemented
      * @OA\Put(
-     *     path="/taoTestCenter/api/eligibility",
+     *     path="/taoTestCenterRostering/api/eligibility",
      *     tags={"eligibility"},
      *     summary="Update eligibility test-takers",
      *     description="Update eligibility test-takers list",
@@ -296,7 +296,7 @@ class RestEligibility extends AbstractRestController
 
     /**
      * @OA\Get(
-     *     path="/taoTestCenter/api/eligibility",
+     *     path="/taoTestCenterRostering/api/eligibility",
      *     tags={"eligibility"},
      *     summary="Get eligibility data",
      *     description="Get eligibility data",

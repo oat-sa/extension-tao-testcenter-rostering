@@ -19,20 +19,20 @@
  *
  */
 
-namespace oat\taoTestCenter\scripts\install;
+namespace oat\taoTestCenterRostering\scripts\install;
 
 use oat\tao\model\user\import\UserCsvImporterFactory;
 use oat\taoProctoring\model\authorization\TestTakerAuthorizationInterface;
 use oat\taoProctoring\model\ProctorServiceInterface;
-use oat\taoTestCenter\model\import\TestCenterAdminCsvImporter;
-use oat\taoTestCenter\model\proctoring\TestCenterProctorService;
-use oat\taoTestCenter\model\TestCenterAssignment;
+use oat\taoTestCenterRostering\model\import\TestCenterAdminCsvImporter;
+use oat\taoTestCenterRostering\model\proctoring\TestCenterProctorService;
+use oat\taoTestCenterRostering\model\TestCenterAssignment;
 use oat\taoDelivery\model\AssignmentService;
-use oat\taoTestCenter\model\proctoring\TestCenterAuthorizationService;
+use oat\taoTestCenterRostering\model\proctoring\TestCenterAuthorizationService;
 
 /**
  * Class TestCenterOverrideServices
- * @package oat\taoTestCenter\scripts\install
+ * @package oat\taoTestCenterRoastering\scripts\install
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class TestCenterOverrideServices extends \common_ext_action_InstallAction

@@ -17,12 +17,12 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA;
  */
 
-namespace oat\taoTestCenter\scripts\tools;
+namespace oat\taoTestCenterRostering\scripts\tools;
 
 use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\extension\script\ScriptAction;
 use common_report_Report as Report;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\EligibilityService;
 
 /**
  * sudo -u www-data php index.php 'oat\taoTestCenter\scripts\tools\CleanupEligibility'

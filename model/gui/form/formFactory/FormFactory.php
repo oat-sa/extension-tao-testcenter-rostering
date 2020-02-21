@@ -18,7 +18,7 @@
  *
  */
 
-namespace oat\taoTestCenter\model\gui\form\formFactory;
+namespace oat\taoTestCenterRostering\model\gui\form\formFactory;
 
 use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\service\ConfigurableService;

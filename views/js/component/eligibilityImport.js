@@ -24,7 +24,7 @@ define([
     'helpers',
     'uri',
     'ui/component',
-    'tpl!taoTestCenter/component/eligibilityImport/layout',
+    'tpl!taoTestCenterRostering/component/eligibilityImport/layout',
     'ui/feedback',
     'ui/report',
     'layout/loading-bar',

@@ -18,14 +18,14 @@
  *
  */
 
-namespace oat\taoTestCenter\model\gui\form\formFactory;
+namespace oat\taoTestCenterRostering\model\gui\form\formFactory;
 
 /**
  * Class SubTestCenterFormFactory
  *
  * Generate a form for assignation of sub test center to other
  *
- * @package oat\taoTestCenter\model\gui\form\formFactory
+ * @package oat\taoTestCenterRoastering\model\gui\form\formFactory
  */
 class SubTestCenterFormFactory extends FormFactory
 {

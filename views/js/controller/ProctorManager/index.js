@@ -30,10 +30,10 @@ define([
     'ui/bulkActionPopup',
     'ui/datalist',
     'ui/button',
-    'taoTestCenter/component/proctorForm',
+    'taoTestCenterRostering/component/proctorForm',
     'taoProctoring/helper/textConverter',
-    'tpl!taoTestCenter/templates/proctorManager/counters',
-    'tpl!taoTestCenter/templates/proctorManager/status',
+    'tpl!taoTestCenterRostering/templates/proctorManager/counters',
+    'tpl!taoTestCenterRostering/templates/proctorManager/status',
     'ui/datatable'
 ], function (_, $, __, loadingBar, urlHelper, encode, feedback, dialogConfirm, bulkActionPopup, datalist, buttonFactory, proctorForm, textConverter, counterTpl, statusTpl) {
     'use strict';

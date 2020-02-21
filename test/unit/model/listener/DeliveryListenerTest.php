@@ -17,13 +17,13 @@
  * Copyright (c) 2019 (original work) Open Assessment Technologies SA;
  *
  */
-namespace oat\taoTestCenter\test\unit\model\listener;
+namespace oat\taoTestCenterRostering\test\unit\model\listener;
 
 use oat\generis\test\TestCase;
 use oat\taoDeliveryRdf\model\event\DeliveryRemovedEvent;
 use oat\taoDeliveryRdf\model\event\DeliveryUpdatedEvent;
-use oat\taoTestCenter\model\EligibilityService;
-use oat\taoTestCenter\model\listener\DeliveryListener;
+use oat\taoTestCenterRostering\model\EligibilityService;
+use oat\taoTestCenterRostering\model\listener\DeliveryListener;
 use oat\generis\test\MockObject;
 
 class DeliveryListenerTest extends TestCase

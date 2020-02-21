@@ -19,14 +19,14 @@
  *
  */
 
-namespace oat\taoTestCenter\scripts\install;
+namespace oat\taoTestCenterRostering\scripts\install;
 
 use oat\tao\model\entryPoint\EntryPointService;
-use oat\taoTestCenter\model\entrypoint\TestCenterEntryPoint;
+use oat\taoTestCenterRostering\model\entrypoint\TestCenterEntryPoint;
 
 /**
  * Class RegisterTestCenterEntryPoint
- * @package oat\taoTestCenter\scripts\install
+ * @package oat\taoTestCenterRoastering\scripts\install
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class RegisterTestCenterEntryPoint extends \common_ext_action_InstallAction

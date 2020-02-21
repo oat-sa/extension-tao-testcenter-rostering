@@ -18,17 +18,17 @@
  *
  */
 
-namespace oat\taoTestCenter\model\gui\form;
+namespace oat\taoTestCenterRostering\model\gui\form;
 
 use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\service\ConfigurableService;
-use oat\taoTestCenter\model\gui\form\formFactory\FormFactoryInterface;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactoryInterface;
 
 class TreeFormFactory extends ConfigurableService
 {
     use OntologyAwareTrait;
 
-    const SERVICE_ID = 'taoTestCenter/treeFormFactory';
+    const SERVICE_ID = 'taoTestCenterRostering/treeFormFactory';
 
     const OPTION_FORM_FACTORIES = 'formFactories';
 

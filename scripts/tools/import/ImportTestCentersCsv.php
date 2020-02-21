@@ -17,10 +17,10 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA;
  */
 
-namespace oat\taoTestCenter\scripts\tools\import;
+namespace oat\taoTestCenterRostering\scripts\tools\import;
 
 use oat\oatbox\extension\script\ScriptAction;
-use oat\taoTestCenter\model\import\TestCenterCsvImporterFactory;
+use oat\taoTestCenterRostering\model\import\TestCenterCsvImporterFactory;
 
 /**
  * sudo -u www-data php index.php 'oat\taoTestCenter\scripts\tools\import\ImportTestCentersCsv' -f /txt.csv

@@ -5,7 +5,7 @@
     "version": "0.1"
   },
   "paths": {
-    "/taoTestCenter/api/eligibilities": {
+    "/taoTestCenterRostering/api/eligibilities": {
       "get": {
         "tags": [
           "eligibilities"
@@ -87,7 +87,7 @@
         }
       }
     },
-    "/taoTestCenter/api/eligibility": {
+    "/taoTestCenterRostering/api/eligibility": {
       "get": {
         "tags": [
           "eligibility"
@@ -354,7 +354,7 @@
         }
       }
     },
-    "/taoTestCenter/api/testCenter": {
+    "/taoTestCenterRostering/api/testCenter": {
       "get": {
         "tags": [
           "testCenter"
@@ -491,7 +491,7 @@
         }
       }
     },
-    "/taoTestCenter/api/testCenterUsers": {
+    "/taoTestCenterRostering/api/testCenterUsers": {
       "post": {
         "tags": [
           "testCenter"

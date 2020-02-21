@@ -18,7 +18,7 @@
  *
  */
 
-namespace oat\taoTestCenter\controller\form;
+namespace oat\taoTestCenterRostering\controller\form;
 
 use http\Exception\InvalidArgumentException;
 use tao_helpers_form_FormElement;

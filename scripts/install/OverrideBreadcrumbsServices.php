@@ -18,15 +18,15 @@
  *
  */
 
-namespace oat\taoTestCenter\scripts\install;
+namespace oat\taoTestCenterRostering\scripts\install;
 
 
 use oat\oatbox\extension\InstallAction;
-use oat\taoTestCenter\model\breadcrumbs\OverriddenDeliverySelectionService;
+use oat\taoTestCenterRostering\model\breadcrumbs\OverriddenDeliverySelectionService;
 
 class OverrideBreadcrumbsServices extends InstallAction
 {
-    
+
     public function __invoke($params)
     {
         $this->registerService(

@@ -19,16 +19,16 @@
  *
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
-use oat\taoTestCenter\helper\TestCenterHelper;
+use oat\taoTestCenterRostering\helper\TestCenterHelper;
 use oat\taoProctoring\model\textConverter\ProctoringTextConverterTrait;
 
 /**
  * Proctoring Test Center controllers for test center screens
  *
  * @author Open Assessment Technologies SA
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @license GPL-2.0
  *
  */
@@ -42,7 +42,7 @@ class TestCenter extends SimplePageModule
     public function index()
     {
         $testCenters = TestCenterHelper::getTestCenters();
-        
+
         $data = array(
             'list' => $testCenters,
             'administrator' => $this->hasAccess(ProctorManager::class, 'index') //check if the current user is a test site administrator or not
@@ -84,15 +84,15 @@ class TestCenter extends SimplePageModule
             );
         }
     }
-    
+
     private function getTestCenterData()
     {
         $testCenterService = TestCenterService::singleton();
         $currentUser = \common_session_SessionManager::getSession()->getUser();
         $testCenters = $testCenterService->getTestCentersByProctor($currentUser, $options);
-        
+
     }
-    
+
     /**
      * Get the requested test center resource
      * Use this to identify which test center is currently being selected buy the proctor

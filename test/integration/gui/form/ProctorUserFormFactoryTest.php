@@ -18,12 +18,12 @@
  *
  */
 
-namespace oat\taoTestCenter\test\integration\gui\form;
+namespace oat\taoTestCenterRostering\test\integration\gui\form;
 
 use core_kernel_classes_Resource;
 use oat\taoProctoring\model\textConverter\ProctoringTextConverter;
-use oat\taoTestCenter\model\gui\form\formFactory\FormFactory;
-use oat\taoTestCenter\model\gui\ProctorUserFormFactory;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactory;
+use oat\taoTestCenterRostering\model\gui\ProctorUserFormFactory;
 use tao_helpers_form_GenerisTreeForm;
 use oat\generis\test\TestCase;
 
