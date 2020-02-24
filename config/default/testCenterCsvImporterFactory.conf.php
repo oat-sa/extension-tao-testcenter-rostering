@@ -7,13 +7,15 @@ use oat\generis\model\OntologyRdfs;
 use oat\generis\model\user\UserRdf;
 use oat\tao\model\import\service\ArrayImportValueMapper;
 use oat\tao\model\import\service\RdsValidatorValueMapper;
+use oat\taoTestCenterRostering\model\import\RdsTestCenterImportService;
+use oat\taoTestCenterRostering\model\import\TestCenterCsvImporterFactory;
 use oat\taoTestCenterRostering\model\ProctorManagementService;
 use oat\taoTestCenterRostering\model\TestCenterService;
 
-return new \oat\taoTestCenter\model\import\TestCenterCsvImporterFactory([
+return new TestCenterCsvImporterFactory([
     'mappers' => [
         'default' => array(
-            'importer' => new \oat\taoTestCenter\model\import\RdsTestCenterImportService()
+            'importer' => new RdsTestCenterImportService()
         ),
     ],
     'default-schema' => [

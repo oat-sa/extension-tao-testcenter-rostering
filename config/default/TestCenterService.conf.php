@@ -1,4 +1,4 @@
 <?php
 
-return new oat\taoTestCenter\model\TestCenterService([]);
+return new oat\taoTestCenterRostering\model\TestCenterService([]);
 
