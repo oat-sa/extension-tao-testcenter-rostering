@@ -17,13 +17,13 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\model\import;
+namespace oat\taoTestCenterRostering\model\import;
 
 use oat\generis\model\data\event\ResourceUpdated;
 use oat\oatbox\event\EventManager;
 use oat\tao\model\import\service\AbstractImportService;
 use oat\tao\model\import\service\ImportMapperInterface;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\EligibilityService;
 use core_kernel_classes_Resource;
 
 class RdsEligibilityImportService extends AbstractImportService

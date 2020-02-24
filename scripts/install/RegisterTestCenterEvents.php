@@ -19,20 +19,20 @@
  *
  */
 
-namespace oat\taoTestCenter\scripts\install;
+namespace oat\taoTestCenterRostering\scripts\install;
 
 use oat\oatbox\extension\InstallAction;
 use oat\tao\model\event\UserRemovedEvent;
 use oat\taoDeliveryRdf\model\event\DeliveryRemovedEvent;
-use oat\taoTestCenter\model\eligibility\EligiblityChanged;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\eligibility\EligiblityChanged;
+use oat\taoTestCenterRostering\model\EligibilityService;
 use oat\taoDelivery\models\classes\execution\event\DeliveryExecutionCreated;
-use oat\taoTestCenter\model\listener\DeliveryListener;
+use oat\taoTestCenterRostering\model\listener\DeliveryListener;
 use oat\taoTestTaker\models\events\TestTakerRemovedEvent;
 
 /**
  * Class RegisterTestCenterEvents
- * @package oat\taoTestCenter\scripts\install
+ * @package oat\taoTestCenterRoastering\scripts\install
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class RegisterTestCenterEvents extends InstallAction

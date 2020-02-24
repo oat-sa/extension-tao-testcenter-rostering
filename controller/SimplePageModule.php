@@ -19,7 +19,7 @@
  *
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use common_session_SessionManager as SessionManager;
 use oat\taoProctoring\helpers\DataTableHelper;
@@ -30,7 +30,7 @@ use DateTime;
  * Base test center interface controller
  *
  * @author Open Assessment Technologies SA
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @license GPL-2.0
  */
 abstract class SimplePageModule extends \tao_actions_SinglePageModule

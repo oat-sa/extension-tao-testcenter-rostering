@@ -33,8 +33,8 @@ define([
     'i18n',
     'ui/component',
     'helpers',
-    'tpl!taoTestCenter/component/eligibilityTable/status',
-    'tpl!taoTestCenter/component/eligibilityTable/actions',
+    'tpl!taoTestCenterRostering/component/eligibilityTable/status',
+    'tpl!taoTestCenterRostering/component/eligibilityTable/actions',
     'css!taoTestCenterCss/eligibilityTable.css',
     'ui/datatable'
 ], function($, _, __, component, helpers, statusTpl, actionsTpl){

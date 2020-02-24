@@ -18,13 +18,13 @@
  *
  *
  */
-namespace oat\taoTestCenter\model\proctoring;
+namespace oat\taoTestCenterRostering\model\proctoring;
 
 use oat\generis\model\kernel\users\UserInternalInterface;
 use oat\oatbox\user\User;
 use oat\taoProctoring\model\monitorCache\DeliveryMonitoringService;
 use oat\taoProctoring\model\ProctorService;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\EligibilityService;
 
 /**
  * Sample Delivery Service for proctoring
@@ -47,7 +47,7 @@ class TestCenterProctorService extends ProctorService
         $elibilityService = $this->getServiceManager()->get(EligibilityService::SERVICE_ID);
         return $elibilityService->getEligibleDeliveries($testCenter, false);
     }
-    
+
     /**
      * @param null $delivery
      * @param null $context

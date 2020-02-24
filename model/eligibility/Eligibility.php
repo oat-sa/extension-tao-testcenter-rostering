@@ -18,19 +18,19 @@
  *
  */
 
-namespace oat\taoTestCenter\model\eligibility;
+namespace oat\taoTestCenterRostering\model\eligibility;
 
 use core_kernel_classes_Property;
 use \core_kernel_classes_Resource as Resource;
 use Zend\ServiceManager\ServiceLocatorAwareTrait;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\EligibilityService;
 use oat\generis\model\OntologyAwareTrait;
 
 
 /**
  * Class Eligibility
- * @package oat\taoTestCenter\model\eligibility
+ * @package oat\taoTestCenterRoastering\model\eligibility
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  * @OA\Schema(
  *     required={"delivery","testCenter"}

@@ -20,7 +20,7 @@
  *
  */
 
-namespace oat\taotestCenter\test\integration;
+namespace oat\taoTestCenterRostering\test\integration;
 
 include_once dirname(__FILE__).'/../../../tao/includes/raw_start.php';
 
@@ -29,7 +29,7 @@ use core_kernel_classes_Property;
 use core_kernel_classes_Resource;
 use oat\generis\model\OntologyRdfs;
 use oat\tao\test\TaoPhpUnitTestRunner;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 use oat\taoTestTaker\models\TestTakerService;
 
 

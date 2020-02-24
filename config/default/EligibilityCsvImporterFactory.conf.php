@@ -7,8 +7,8 @@ use oat\generis\model\user\UserRdf;
 use oat\tao\model\import\service\ArrayImportValueMapper;
 use oat\tao\model\import\service\RdsValidatorValueMapper;
 use oat\taoDeliveryRdf\model\DeliveryAssemblyService;
-use oat\taoTestCenter\model\EligibilityService;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\EligibilityService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 return new oat\taoTestCenter\model\import\EligibilityCsvImporterFactory(array(
     'default-schema' => array(

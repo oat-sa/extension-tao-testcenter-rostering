@@ -20,25 +20,25 @@
  */
 
 use oat\taoProctoring\controller\MonitorProctorAdministrator;
-use oat\taoTestCenter\controller\Import;
-use oat\taoTestCenter\scripts\install\RegisterTestCenterEntryPoint;
-use oat\taoTestCenter\controller\TestCenterManager;
-use oat\taoTestCenter\controller\TestCenter;
-use oat\taoTestCenter\scripts\install\TestCenterOverrideServices;
-use oat\taoTestCenter\controller\ProctorManager;
-use oat\taoTestCenter\controller\Diagnostic;
-use oat\taoTestCenter\controller\RestEligibilities;
-use oat\taoTestCenter\controller\RestEligibility;
-use oat\taoTestCenter\controller\RestTestCenter;
-use oat\taoTestCenter\scripts\install\RegisterTestCenterEvents;
+use oat\taoTestCenterRostering\controller\Import;
+use oat\taoTestCenterRostering\scripts\install\RegisterTestCenterEntryPoint;
+use oat\taoTestCenterRostering\controller\TestCenterManager;
+use oat\taoTestCenterRostering\controller\TestCenter;
+use oat\taoTestCenterRostering\scripts\install\TestCenterOverrideServices;
+use oat\taoTestCenterRostering\controller\ProctorManager;
+use oat\taoTestCenterRostering\controller\Diagnostic;
+use oat\taoTestCenterRostering\controller\RestEligibilities;
+use oat\taoTestCenterRostering\controller\RestEligibility;
+use oat\taoTestCenterRostering\controller\RestTestCenter;
+use oat\taoTestCenterRostering\scripts\install\RegisterTestCenterEvents;
 use oat\taoProctoring\model\ProctorService;
-use oat\taoTestCenter\model\TestCenterService;
-use oat\taoTestCenter\scripts\install\OverrideBreadcrumbsServices;
-use oat\taoTestCenter\scripts\install\RegisterClientLibConfig;
-use oat\taoTestCenter\controller\RestTestCenterUsers;
+use oat\taoTestCenterRostering\model\TestCenterService;
+use oat\taoTestCenterRostering\scripts\install\OverrideBreadcrumbsServices;
+use oat\taoTestCenterRostering\scripts\install\RegisterClientLibConfig;
+use oat\taoTestCenterRostering\controller\RestTestCenterUsers;
 
 return array(
-    'name' => 'taoTestCenter',
+    'name' => 'taoTestcenterRostering',
     'label' => 'Test Center',
     'description' => 'Proctoring via test-centers',
     'license' => 'GPL-2.0',
@@ -81,16 +81,16 @@ return array(
         )
     ),
 //    'uninstall' => array(),
-    'update' => 'oat\\taoTestCenter\\scripts\\update\\Updater',
+    'update' => 'oat\\taoTestCenterRostering\\scripts\\update\\Updater',
     'routes' => array(
-        '/taoTestCenter/api' => ['class' => \oat\taoTestCenter\model\routing\ApiRoute::class],
-        '/taoTestCenter' => 'oat\\taoTestCenter\\controller',
+        '/taoTestCenterRostering/api' => ['class' => \oat\taoTestCenterRostering\model\routing\ApiRoute::class],
+        '/taoTestCenterRostering' => 'oat\\taoTestCenterRostering\\controller',
     ),
     'constants' => array(
         # views directory
-        "DIR_VIEWS" => dirname(__FILE__) . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR,
+        'DIR_VIEWS' => dirname(__FILE__) . DIRECTORY_SEPARATOR . "views" . DIRECTORY_SEPARATOR,
         #BASE URL (usually the domain root)
-        'BASE_URL' => ROOT_URL . 'taoTestCenter/',
+        'BASE_URL' => ROOT_URL . 'taoTestCenterRostering/',
     ),
     'extra' => array(
         'structures' => dirname(__FILE__) . DIRECTORY_SEPARATOR . 'controller' . DIRECTORY_SEPARATOR . 'structures.xml',

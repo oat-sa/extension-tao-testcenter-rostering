@@ -18,7 +18,7 @@
  *
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use oat\generis\model\data\event\ResourceUpdated;
 use oat\oatbox\event\EventManager;
@@ -27,11 +27,11 @@ use oat\tao\model\import\service\RdsValidatorValueMapper;
 use oat\tao\model\resources\ResourceWatcher;
 use oat\tao\model\Tree\GetTreeRequest;
 use oat\tao\model\Tree\GetTreeService;
-use oat\taoTestCenter\model\gui\form\TreeFormFactory;
-use oat\taoTestCenter\model\import\EligibilityCsvImporterFactory;
-use oat\taoTestCenter\model\TestCenterFormService;
-use oat\taoTestCenter\model\TestCenterService;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\gui\form\TreeFormFactory;
+use oat\taoTestCenterRostering\model\import\EligibilityCsvImporterFactory;
+use oat\taoTestCenterRostering\model\TestCenterFormService;
+use oat\taoTestCenterRostering\model\TestCenterService;
+use oat\taoTestCenterRostering\model\EligibilityService;
 use oat\taoProctoring\helpers\DataTableHelper;
 use oat\taoProctoring\model\textConverter\ProctoringTextConverterTrait;
 
@@ -39,7 +39,7 @@ use oat\taoProctoring\model\textConverter\ProctoringTextConverterTrait;
  * Proctoring Test Center controllers for test center screens
  *
  * @author Open Assessment Technologies SA
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @license GPL-2.0
  *
  */
@@ -47,7 +47,7 @@ class TestCenterManager extends \tao_actions_SaSModule
 {
     use ProctoringTextConverterTrait;
 
-    const COMPONENT = 'taoTestCenter/component/eligibilityEditor';
+    const COMPONENT = 'taoTestCenterRostering/component/eligibilityEditor';
 
     /**
      * Initialize the service and the default data

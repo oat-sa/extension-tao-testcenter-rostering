@@ -17,11 +17,11 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\model\import;
+namespace oat\taoTestCenterRostering\model\import;
 
 use oat\generis\model\user\UserRdf;
 use oat\tao\model\user\import\RdsUserImportService;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 /**
  * Class TestCenterAdminCsvImporter

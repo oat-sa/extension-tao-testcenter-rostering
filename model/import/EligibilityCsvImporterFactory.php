@@ -16,11 +16,11 @@
  *
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
-namespace oat\taoTestCenter\model\import;
+namespace oat\taoTestCenterRostering\model\import;
 
 use oat\tao\model\import\service\ImporterFactory;
 
 class EligibilityCsvImporterFactory extends ImporterFactory
 {
-    const SERVICE_ID = 'taoTestCenter/EligibilityCsvImporterFactory';
+    const SERVICE_ID = 'taoTestCenterRostering/EligibilityCsvImporterFactory';
 }

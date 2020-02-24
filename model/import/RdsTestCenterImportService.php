@@ -17,14 +17,14 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\model\import;
+namespace oat\taoTestCenterRostering\model\import;
 
 use oat\generis\model\OntologyAwareTrait;
 use oat\generis\model\OntologyRdf;
 use oat\tao\model\import\service\AbstractImportService;
 use oat\tao\model\import\service\ImportMapperInterface;
-use oat\taoTestCenter\model\ProctorManagementService;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\ProctorManagementService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 class RdsTestCenterImportService extends AbstractImportService
 {

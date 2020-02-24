@@ -18,7 +18,7 @@
  *
  *
  */
-namespace oat\taoTestCenter\model;
+namespace oat\taoTestCenterRostering\model;
 
 use oat\oatbox\user\User;
 use core_kernel_classes_Resource;
@@ -27,7 +27,7 @@ use core_kernel_classes_Property;
 
 /**
  * Proctor management Service
- * 
+ *
  */
 class ProctorManagementService extends \tao_models_classes_GenerisService
 {
@@ -173,7 +173,7 @@ class ProctorManagementService extends \tao_models_classes_GenerisService
 
         return $users;
     }
-    
+
     private function getUserClass()
     {
         return \tao_models_classes_UserService::singleton()->getRootClass();

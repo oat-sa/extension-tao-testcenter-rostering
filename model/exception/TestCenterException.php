@@ -20,11 +20,11 @@
  */
 
 
-namespace oat\taoTestCenter\model\exception;
+namespace oat\taoTestCenterRostering\model\exception;
 
 /**
  * Class TestCenterException
- * @package oat\taoTestCenter\model\exception
+ * @package oat\taoTestCenterRoastering\model\exception
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class TestCenterException extends \common_Exception

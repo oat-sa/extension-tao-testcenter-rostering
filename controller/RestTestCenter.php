@@ -17,18 +17,18 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use common_exception_Error;
 use common_exception_RestApi;
 use core_kernel_classes_Property;
 use Exception;
 use oat\generis\model\OntologyRdfs;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 /**
  * Class RestTestCenter
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class RestTestCenter extends AbstractRestController
@@ -137,7 +137,7 @@ class RestTestCenter extends AbstractRestController
 
     /**
      * @OA\Post(
-     *     path="/taoTestCenter/api/testCenter",
+     *     path="/taoTestCenterRostering/api/testCenter",
      *     tags={"testCenter"},
      *     summary="Create new test center",
      *     description="Create new test center",
@@ -229,7 +229,7 @@ class RestTestCenter extends AbstractRestController
 
     /**
      * @OA\Get(
-     *     path="/taoTestCenter/api/testCenter",
+     *     path="/taoTestCenterRostering/api/testCenter",
      *     tags={"testCenter"},
      *     summary="Get test center data",
      *     description="Get test center data",

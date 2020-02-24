@@ -18,7 +18,7 @@
  *
  *
  */
-namespace oat\taoTestCenter\model;
+namespace oat\taoTestCenterRostering\model;
 
 use tao_actions_form_Instance;
 use core_kernel_classes_Class;
@@ -28,7 +28,7 @@ use tao_helpers_form_FormContainer as FormContainer;
 
 class TestCenterFormService extends ConfigurableService
 {
-    const SERVICE_ID = 'taoTestCenter/TestCenterFormService';
+    const SERVICE_ID = 'taoTestCenterRostering/TestCenterFormService';
 
     /**
      * @param core_kernel_classes_Class $clazz

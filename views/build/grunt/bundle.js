@@ -34,7 +34,7 @@ module.exports = function(grunt) {
                     bundles : [{
                         name : 'taoTestCenter',
                         default : true,
-                        include : ['taoTestCenter/component/**/*']
+                        include : ['taoTestCenterRostering/component/**/*']
                     }]
                 }
             }

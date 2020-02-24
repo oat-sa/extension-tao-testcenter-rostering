@@ -7,8 +7,8 @@ use oat\generis\model\OntologyRdfs;
 use oat\generis\model\user\UserRdf;
 use oat\tao\model\import\service\ArrayImportValueMapper;
 use oat\tao\model\import\service\RdsValidatorValueMapper;
-use oat\taoTestCenter\model\ProctorManagementService;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\ProctorManagementService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 return new \oat\taoTestCenter\model\import\TestCenterCsvImporterFactory([
     'mappers' => [

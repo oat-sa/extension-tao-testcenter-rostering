@@ -18,18 +18,18 @@
  *
  */
 
-namespace oat\taoTestCenter\model\gui;
+namespace oat\taoTestCenterRostering\model\gui;
 
 use oat\generis\model\user\UserRdf;
 use oat\taoProctoring\model\ProctorService;
-use oat\taoTestCenter\model\gui\form\formFactory\FormFactory;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactory;
 
 /**
  * Class ProctorUserFormFactory
  *
  * Generate a form for assignation of Proctor to test center
  *
- * @package oat\taoTestCenter\model\gui
+ * @package oat\taoTestCenterRoastering\model\gui
  */
 class ProctorUserFormFactory extends FormFactory
 {

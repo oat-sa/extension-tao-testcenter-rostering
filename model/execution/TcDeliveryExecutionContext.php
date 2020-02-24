@@ -17,7 +17,7 @@
  * Copyright (c) 2019 (original work) Open Assessment Technologies SA ;
  */
 
-namespace oat\taoTestCenter\model\execution;
+namespace oat\taoTestCenterRostering\model\execution;
 
 use oat\taoDelivery\model\execution\DeliveryExecutionContext;
 

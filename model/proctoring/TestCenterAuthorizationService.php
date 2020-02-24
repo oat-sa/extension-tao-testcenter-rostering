@@ -17,14 +17,14 @@
  * Copyright (c) 2017 (original work) Open Assessment Technologies SA;
  *
  */
-namespace oat\taoTestCenter\model\proctoring;
+namespace oat\taoTestCenterRostering\model\proctoring;
 
 use oat\taoDeliveryRdf\model\guest\GuestTestUser;
 use oat\taoProctoring\helpers\DeliveryHelper;
 use oat\taoProctoring\model\authorization\TestTakerAuthorizationService;
 use oat\oatbox\user\User;
 use oat\taoProctoring\model\DelegatedServiceHandler;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\EligibilityService;
 
 /**
  * Manage the Testtaker delivery authorization.

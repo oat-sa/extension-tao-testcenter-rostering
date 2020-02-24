@@ -18,14 +18,14 @@
  *
  *
  */
-namespace oat\taoTestCenter\model\proctoring;
+namespace oat\taoTestCenterRostering\model\proctoring;
 
 use oat\taoProctoring\model\monitorCache\DeliveryMonitoringService;
 /**
  * Interface TestCenterMonitoringService
  * Add testcenters to monitoring data
  *
- * @package oat\taoTestCenter\model\proctoring
+ * @package oat\taoTestCenterRoastering\model\proctoring
  * @author Aleh Hutnikau <hutnikau@1pt.com>
  */
 interface TestCenterMonitoringService extends DeliveryMonitoringService

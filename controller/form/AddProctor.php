@@ -17,7 +17,7 @@
  * Copyright (c) 2015 (original work) Open Assessment Technologies SA ;
  *
  */
-namespace oat\taoTestCenter\controller\form;
+namespace oat\taoTestCenterRostering\controller\form;
 
 use oat\tao\model\TaoOntology;
 use oat\generis\model\GenerisRdf;

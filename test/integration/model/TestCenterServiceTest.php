@@ -19,19 +19,19 @@
  *
  */
 
-namespace oat\taoTestCenter\test\integration\model;
+namespace oat\taoTestCenterRostering\test\integration\model;
 
 use oat\generis\test\GenerisTestCase;
 use oat\tao\model\TaoOntology;
-use oat\taoTestCenter\model\exception\TestCenterException;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\exception\TestCenterException;
+use oat\taoTestCenterRostering\model\TestCenterService;
 use oat\oatbox\user\User;
 use oat\taoProctoring\model\ProctorService;
-use oat\taoTestCenter\model\ProctorManagementService;
+use oat\taoTestCenterRostering\model\ProctorManagementService;
 
 /**
  * Class TestCenterServiceTest
- * @package oat\taoTestCenter\test\unit\model
+ * @package oat\taoTestCenterRoastering\test\unit\model
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class TestCenterServiceTest extends GenerisTestCase

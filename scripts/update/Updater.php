@@ -20,7 +20,7 @@
  *               2013-2014 (update and modification) Open Assessment Technologies SA
  */
 
-namespace oat\taoTestCenter\scripts\update;
+namespace oat\taoTestCenterRostering\scripts\update;
 
 use common_Exception;
 use common_ext_ExtensionUpdater;
@@ -39,36 +39,36 @@ use oat\taoDeliveryRdf\model\event\DeliveryRemovedEvent;
 use oat\taoProctoring\controller\MonitorProctorAdministrator;
 use oat\taoProctoring\model\authorization\TestTakerAuthorizationInterface;
 use oat\taoProctoring\model\ProctorServiceInterface;
-use oat\taoTestCenter\controller\Import;
-use oat\taoTestCenter\controller\RestEligibilities;
-use oat\taoTestCenter\controller\RestEligibility;
-use oat\taoTestCenter\controller\RestTestCenter;
-use oat\taoTestCenter\controller\RestTestCenterUsers;
-use oat\taoTestCenter\model\breadcrumbs\OverriddenDeliverySelectionService;
-use oat\taoTestCenter\model\breadcrumbs\OverriddenMonitorService;
-use oat\taoTestCenter\model\breadcrumbs\OverriddenReportingService;
-use oat\taoTestCenter\model\EligibilityService;
-use oat\taoTestCenter\model\gui\form\formFactory\FormFactory;
-use oat\taoTestCenter\model\gui\form\formFactory\SubTestCenterFormFactory;
-use oat\taoTestCenter\model\gui\form\TreeFormFactory;
-use oat\taoTestCenter\model\gui\TestcenterAdministratorUserFormFactory;
-use oat\taoTestCenter\model\gui\ProctorUserFormFactory;
-use oat\taoTestCenter\model\import\EligibilityCsvImporterFactory;
-use oat\taoTestCenter\model\import\RdsEligibilityImportService;
-use oat\taoTestCenter\model\import\RdsTestCenterImportService;
-use oat\taoTestCenter\model\import\TestCenterAdminCsvImporter;
-use oat\taoTestCenter\model\import\TestCenterCsvImporterFactory;
-use oat\taoTestCenter\model\listener\DeliveryListener;
-use oat\taoTestCenter\model\proctoring\TestCenterAuthorizationService;
-use oat\taoTestCenter\model\proctoring\TestCenterProctorService;
+use oat\taoTestCenterRostering\controller\Import;
+use oat\taoTestCenterRostering\controller\RestEligibilities;
+use oat\taoTestCenterRostering\controller\RestEligibility;
+use oat\taoTestCenterRostering\controller\RestTestCenter;
+use oat\taoTestCenterRostering\controller\RestTestCenterUsers;
+use oat\taoTestCenterRostering\model\breadcrumbs\OverriddenDeliverySelectionService;
+use oat\taoTestCenterRostering\model\breadcrumbs\OverriddenMonitorService;
+use oat\taoTestCenterRostering\model\breadcrumbs\OverriddenReportingService;
+use oat\taoTestCenterRostering\model\EligibilityService;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactory;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\SubTestCenterFormFactory;
+use oat\taoTestCenterRostering\model\gui\form\TreeFormFactory;
+use oat\taoTestCenterRostering\model\gui\TestcenterAdministratorUserFormFactory;
+use oat\taoTestCenterRostering\model\gui\ProctorUserFormFactory;
+use oat\taoTestCenterRostering\model\import\EligibilityCsvImporterFactory;
+use oat\taoTestCenterRostering\model\import\RdsEligibilityImportService;
+use oat\taoTestCenterRostering\model\import\RdsTestCenterImportService;
+use oat\taoTestCenterRostering\model\import\TestCenterAdminCsvImporter;
+use oat\taoTestCenterRostering\model\import\TestCenterCsvImporterFactory;
+use oat\taoTestCenterRostering\model\listener\DeliveryListener;
+use oat\taoTestCenterRostering\model\proctoring\TestCenterAuthorizationService;
+use oat\taoTestCenterRostering\model\proctoring\TestCenterProctorService;
 use oat\tao\scripts\update\OntologyUpdater;
-use oat\taoTestCenter\model\ProctorManagementService;
-use oat\taoTestCenter\model\TestCenterFormService;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\ProctorManagementService;
+use oat\taoTestCenterRostering\model\TestCenterFormService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 use oat\taoTestTaker\models\events\TestTakerRemovedEvent;
 use oat\tao\model\ClientLibConfigRegistry;
 use common_report_Report as Report;
-use oat\taoTestCenter\scripts\tools\CleanupEligibility;
+use oat\taoTestCenterRostering\scripts\tools\CleanupEligibility;
 
 /**
  *
@@ -136,7 +136,7 @@ class Updater extends common_ext_ExtensionUpdater
         $this->skip('3.2.0', '3.2.3');
 
         if ($this->isVersion('3.2.3')) {
-            ClientLibConfigRegistry::getRegistry()->register('taoTestCenter/component/eligibilityEditor', [
+            ClientLibConfigRegistry::getRegistry()->register('taoTestCenterRostering/component/eligibilityEditor', [
                 'deliveriesOrder' => 'http://www.w3.org/2000/01/rdf-schema#label',
                 'deliveriesOrderdir' => 'asc',
             ]);

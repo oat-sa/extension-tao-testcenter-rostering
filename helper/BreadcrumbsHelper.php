@@ -19,7 +19,7 @@
  *
  */
 
-namespace oat\taoTestCenter\helper;
+namespace oat\taoTestCenterRostering\helper;
 
 use \core_kernel_classes_Resource;
 use oat\oatbox\service\ServiceManager;

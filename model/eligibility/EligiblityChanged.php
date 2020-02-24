@@ -18,7 +18,7 @@
  *
  */
 
-namespace oat\taoTestCenter\model\eligibility;
+namespace oat\taoTestCenterRostering\model\eligibility;
 
 use core_kernel_classes_Resource;
 

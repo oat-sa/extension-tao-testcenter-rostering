@@ -18,7 +18,7 @@
  *
  */
 
-namespace oat\taoTestCenter\model\gui\form\formFactory;
+namespace oat\taoTestCenterRostering\model\gui\form\formFactory;
 
 interface FormFactoryInterface
 {

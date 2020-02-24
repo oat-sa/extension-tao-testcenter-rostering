@@ -19,12 +19,12 @@
  *
  */
 
-namespace oat\taoTestCenter\model;
+namespace oat\taoTestCenterRostering\model;
 
 use oat\taoClientDiagnostic\model\storage\PaginatedStorage;
 /**
  * Interface DiagnosticStorage
- * @package oat\taoTestCenter\model
+ * @package oat\taoTestCenterRoastering\model
  */
 interface DiagnosticStorage extends PaginatedStorage
 {

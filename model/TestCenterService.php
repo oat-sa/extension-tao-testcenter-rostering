@@ -18,7 +18,7 @@
  *
  *
  */
-namespace oat\taoTestCenter\model;
+namespace oat\taoTestCenterRostering\model;
 
 use core_kernel_classes_Class;
 use core_kernel_classes_Property;
@@ -29,7 +29,7 @@ use oat\tao\model\ClassServiceTrait;
 use oat\tao\model\GenerisServiceTrait;
 use oat\oatbox\service\ConfigurableService;
 use oat\oatbox\service\ServiceManager;
-use oat\taoTestCenter\model\exception\TestCenterException;
+use oat\taoTestCenterRostering\model\exception\TestCenterException;
 use oat\taoProctoring\model\ProctorService;
 
 /**
@@ -42,7 +42,7 @@ class TestCenterService extends ConfigurableService
     }
     use GenerisServiceTrait;
 
-    const SERVICE_ID = 'taoTestCenter/TestCenterService';
+    const SERVICE_ID = 'taoTestCenterRostering/TestCenterService';
 
     const CLASS_URI = 'http://www.tao.lu/Ontologies/TAOTestCenter.rdf#TestCenter';
 

@@ -17,7 +17,7 @@
  * Copyright (c) 2016 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  */
-namespace oat\taoTestCenter\scripts\install;
+namespace oat\taoTestCenterRostering\scripts\install;
 
 use oat\taoClientDiagnostic\model\authorization\Anonymous;
 use oat\taoClientDiagnostic\model\authorization\Authorization;
@@ -57,7 +57,7 @@ class AddDiagnosticSettings extends InstallAction
         //Set diagnostic storage
         $storageService = new PaginatedSqlStorage(['persistence' => 'default']);
         $this->registerService(Storage::SERVICE_ID, $storageService);
-        
+
         return new \common_report_Report(\common_report_Report::TYPE_SUCCESS, 'Diagnostic settings added to Proctoring extension');
     }
 }

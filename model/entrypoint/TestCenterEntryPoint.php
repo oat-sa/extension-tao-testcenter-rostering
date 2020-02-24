@@ -18,7 +18,7 @@
  *
  *
  */
-namespace oat\taoTestCenter\model\entrypoint;
+namespace oat\taoTestCenterRostering\model\entrypoint;
 
 use oat\oatbox\Configurable;
 use oat\tao\model\entryPoint\Entrypoint;
@@ -29,19 +29,19 @@ class TestCenterEntryPoint extends Configurable implements Entrypoint
     public function getId() {
         return 'proctoring';
     }
-    
+
     public function getTitle() {
         return __('Testcenter Proctors');
     }
-    
+
     public function getLabel() {
         return __('Testcenter Proctoring');
     }
-    
+
     public function getDescription() {
         return __('Manage testcenters and administer deliveries');
     }
-    
+
     public function getUrl() {
         return _url("index", "TestCenter", "taoTestCenter");
     }
