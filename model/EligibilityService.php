@@ -28,20 +28,12 @@ use oat\oatbox\event\EventManager;
 use oat\oatbox\service\ConfigurableService;
 use oat\tao\model\event\UserRemovedEvent;
 use oat\taoDelivery\model\execution\DeliveryExecutionContext;
-use oat\taoDelivery\model\execution\DeliveryExecutionContextInterface;
-use oat\taoDelivery\model\execution\DeliveryExecutionInterface;
-use oat\taoDelivery\model\execution\ServiceProxy;
-use oat\taoProctoring\model\monitorCache\DeliveryMonitoringData;
-use oat\taoProctoring\model\ProctorService;
 use oat\taoTestCenterRostering\model\eligibility\EligiblityChanged;
 use oat\taoTestCenterRostering\model\execution\TcDeliveryExecutionContext;
 use oat\taoTestTaker\models\events\TestTakerRemovedEvent;
 use oat\oatbox\user\User;
 use oat\taoTestCenterRostering\model\eligibility\IneligibileException;
-use oat\taoTestCenterRostering\model\proctoring\TestCenterMonitoringService;
-use oat\taoProctoring\model\monitorCache\DeliveryMonitoringService;
 use oat\taoDelivery\model\AssignmentService;
-use oat\taoDelivery\models\classes\execution\event\DeliveryExecutionCreated;
 use oat\generis\model\OntologyAwareTrait;
 
 /**
@@ -132,10 +124,10 @@ class EligibilityService extends ConfigurableService
         ));
 
         //Checking if proctoring was enabled for delivery, if not - we must bypass it in established eligibility
-        $proctoring = $delivery->getOnePropertyValue(new Property(ProctorService::ACCESSIBLE_PROCTOR));
-        if ($proctoring instanceof Resource && $proctoring->getUri() === ProctorService::ACCESSIBLE_PROCTOR_DISABLED) {
-            $this->setByPassProctor($eligibilty, true);
-        }
+//        $proctoring = $delivery->getOnePropertyValue(new Property(ProctorService::ACCESSIBLE_PROCTOR));
+//        if ($proctoring instanceof Resource && $proctoring->getUri() === ProctorService::ACCESSIBLE_PROCTOR_DISABLED) {
+//            $this->setByPassProctor($eligibilty, true);
+//        }
 
         return $eligibilty;
     }
@@ -434,64 +426,6 @@ class EligibilityService extends ConfigurableService
     public function isManuallyAssigned()
     {
         return $this->hasOption(self::OPTION_MANAGEABLE) && $this->getOption(self::OPTION_MANAGEABLE) === true;
-    }
-
-    public function deliveryExecutionCreated(DeliveryExecutionCreated $event)
-    {
-        $monitoringService = $this->getServiceLocator()->get(DeliveryMonitoringService::SERVICE_ID);
-        /** @var DeliveryExecutionInterface $deliveryExecution */
-        $deliveryExecution = $event->getDeliveryExecution();
-
-        try {
-            $testCenter = $this->getTestCenter($deliveryExecution->getDelivery(), $event->getUser());
-            if (empty($testCenter)) {
-                return;
-            }
-
-            /** @var DeliveryMonitoringData $deliverMonitoringData */
-            $deliverMonitoringData = $monitoringService->getData($deliveryExecution);
-            $deliverMonitoringData->update(TestCenterMonitoringService::TEST_CENTER_ID, $testCenter->getUri());
-
-            $executionContext = $this->createExecutionContext($deliveryExecution, $testCenter);
-            if ($executionContext instanceof DeliveryExecutionContextInterface) {
-                $deliverMonitoringData->setDeliveryExecutionContext($executionContext);
-            }
-
-            $monitoringService->save($deliverMonitoringData);
-        } catch (\Exception $e) {
-            $this->logWarning('Delivery monitoring data were not stored. Reason: ' . $e->getMessage(), $e->getTrace());
-        }
-    }
-
-    public function eligiblityChange(EligiblityChanged $event)
-    {
-        /** @var DeliveryMonitoringService $monitoringService */
-        $monitoringService = $this->getServiceLocator()->get(DeliveryMonitoringService::SERVICE_ID);
-
-        $eligiblity = $event->getEligiblity();
-
-        $normalize = function ($item) {
-            return ($item instanceof \core_kernel_classes_Resource) ? $item->getUri() : $item;
-        };
-
-        $before = array_map($normalize, $event->getPreviousTestTakerCollection());
-        $after = array_map($normalize, $event->getActualTestTakersCollection());
-
-        $newTestTakers = array_diff($after, $before);
-
-        $delivery = $this->getDelivery($eligiblity);
-        $testCenter = $eligiblity->getOnePropertyValue(new Property(self::PROPERTY_TESTCENTER_URI));
-
-        //might be we would like to remove newly uneliglbe executions later
-        foreach ($newTestTakers as $testTakerUri) {
-            $executions = ServiceProxy::singleton()->getUserExecutions($delivery, $testTakerUri);
-            foreach ($executions as $execution) {
-                $deliverMonitoringData = $monitoringService->getData($execution);
-                $deliverMonitoringData->update(TestCenterMonitoringService::TEST_CENTER_ID, $testCenter->getUri());
-                $monitoringService->save($deliverMonitoringData);
-            }
-        }
-
     }
 
     /**

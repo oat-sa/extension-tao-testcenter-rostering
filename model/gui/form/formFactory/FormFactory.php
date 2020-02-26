@@ -22,7 +22,6 @@ namespace oat\taoTestCenterRostering\model\gui\form\formFactory;
 
 use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\service\ConfigurableService;
-use oat\taoProctoring\model\textConverter\ProctoringTextConverter;
 use oat\taoTestCenterRostering\model\textConverter\TestCentersTextConverter;
 
 class FormFactory extends ConfigurableService implements FormFactoryInterface
@@ -117,7 +116,7 @@ class FormFactory extends ConfigurableService implements FormFactoryInterface
     /**
      * Get the TextConverterService
      *
-     * @return ProctoringTextConverter
+     * @return TestCentersTextConverter
      */
     protected function getTextConverterService()
     {

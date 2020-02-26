@@ -42,8 +42,6 @@ class RegisterTestCenterEvents extends InstallAction
      */
     public function __invoke($params)
     {
-        $this->registerEvent(EligiblityChanged::EVENT_NAME, [EligibilityService::SERVICE_ID, 'eligiblityChange']);
-        $this->registerEvent(DeliveryExecutionCreated::EVENT_NAME, [EligibilityService::SERVICE_ID, 'deliveryExecutionCreated']);
         $this->registerEvent(UserRemovedEvent::EVENT_NAME, [EligibilityService::SERVICE_ID, 'deletedTestTaker']);
         $this->registerEvent(TestTakerRemovedEvent::EVENT_NAME, [EligibilityService::SERVICE_ID, 'deletedTestTaker']);
         $this->registerEvent(DeliveryRemovedEvent::class, [DeliveryListener::SERVICE_ID, 'deleteDelivery']);
