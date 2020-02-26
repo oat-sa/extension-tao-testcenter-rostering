@@ -25,7 +25,7 @@ define([
     'layout/loading-bar',
     'ui/listbox',
     'ui/button',
-    'taoProctoring/helper/textConverter'
+    'taoTestCenterRostering/helper/textConverter'
 ], function ($, __, urlHelper, loadingBar, listBox, buttonFactory, textConverter) {
     'use strict';
 
@@ -62,8 +62,8 @@ define([
                     renderTo: $container.find('.content'),
                     replace: true
                 });
-                var serviceUrl = urlHelper.route('index', 'TestCenter', 'taoTestCenter');
-                var adminUrl = urlHelper.route('index', 'ProctorManager', 'taoTestCenter');
+                var serviceUrl = urlHelper.route('index', 'TestCenter', 'taoTestCenterRostering');
+                var adminUrl = urlHelper.route('index', 'ProctorManager', 'taoTestCenterRostering');
 
                 // update the index from a JSON array
                 var update = function(boxes) {

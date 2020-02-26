@@ -26,7 +26,7 @@ define([
     'users',
     'ui/feedback',
     'ui/component',
-    'taoProctoring/helper/textConverter',
+    'taoTestCenterRostering/helper/textConverter',
     'tpl!taoTestCenterRostering/component/proctorForm/form'
 ], function(_, $, __, helpers, users, feedback, component, textConverter, formTpl){
     'use strict';
@@ -34,8 +34,8 @@ define([
     var _ns = '.proctor-form';
 
     //service urls:
-    var proctorFormUrl = helpers._url('createProctorForm', 'ProctorManager', 'taoTestCenter');
-    var proctorLoginCheckUrl = helpers._url('checkLogin', 'ProctorManager', 'taoTestCenter');
+    var proctorFormUrl = helpers._url('createProctorForm', 'ProctorManager', 'taoTestCetaoTestCenterRosteringnter');
+    var proctorLoginCheckUrl = helpers._url('checkLogin', 'ProctorManager', 'taoTestCenterRostering');
 
     //initialize legacy components
     helpers.init();

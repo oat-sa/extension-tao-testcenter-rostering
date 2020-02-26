@@ -32,5 +32,5 @@ module.exports = function(grunt) {
     grunt.config('notify', notify);
 
     //register an alias for main build
-    grunt.registerTask('taotestcentersass', ['sass:taotestcenter']);
+    grunt.registerTask('taotestcenterrosteringsass', ['sass:taotestcenterrostering']);
 };

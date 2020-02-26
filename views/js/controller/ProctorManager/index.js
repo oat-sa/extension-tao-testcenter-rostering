@@ -31,7 +31,7 @@ define([
     'ui/datalist',
     'ui/button',
     'taoTestCenterRostering/component/proctorForm',
-    'taoProctoring/helper/textConverter',
+    'taoTestCenterRostering/helper/textConverter',
     'tpl!taoTestCenterRostering/templates/proctorManager/counters',
     'tpl!taoTestCenterRostering/templates/proctorManager/status',
     'ui/datatable'
@@ -45,10 +45,10 @@ define([
     var cssScope = '.proctorManager-index';
 
     //service urls:
-    var indexUrl = urlHelper.route('index', 'TestCenter', 'taoTestCenter');
-    var proctorsDataUrl = urlHelper.route('proctorAuthorizations', 'ProctorManager', 'taoTestCenter');
-    var authorizeUrl = urlHelper.route('authorize', 'ProctorManager', 'taoTestCenter');
-    var unauthorizeUrl = urlHelper.route('unauthorize', 'ProctorManager', 'taoTestCenter');
+    var indexUrl = urlHelper.route('index', 'TestCenter', 'taoTestCenterRostering');
+    var proctorsDataUrl = urlHelper.route('proctorAuthorizations', 'ProctorManager', 'taoTestCenterRostering');
+    var authorizeUrl = urlHelper.route('authorize', 'ProctorManager', 'taoTestCenterRostering');
+    var unauthorizeUrl = urlHelper.route('unauthorize', 'ProctorManager', 'taoTestCenterRostering');
 
     // page modes
     var _modes = {

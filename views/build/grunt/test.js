@@ -39,5 +39,5 @@ module.exports = function(grunt) {
     grunt.config('watch', watch);
 
     // bundle task
-    grunt.registerTask('taotestcentertest', ['qunit:taotestcenter']);
+    grunt.registerTask('taotestcenterrosteringtest', ['qunit:taotestcenterrostering']);
 };
