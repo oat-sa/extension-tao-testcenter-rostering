@@ -22,7 +22,6 @@ namespace oat\taoTestCenterRostering\model;
 
 use oat\oatbox\user\User;
 use core_kernel_classes_Resource;
-use core_kernel_classes_Class;
 use core_kernel_classes_Property;
 
 /**

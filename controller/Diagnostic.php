@@ -20,6 +20,7 @@
 
 namespace oat\taoTestCenterRostering\controller;
 
+use oat\oatbox\service\ServiceNotFoundException;
 use oat\taoTestCenterRostering\helper\TestCenterHelper;
 
 /**
