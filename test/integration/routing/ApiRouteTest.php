@@ -35,7 +35,7 @@ class ApiRouteTest extends TestCase
 {
     public function testResolve()
     {
-        $route = new ApiRoute(new common_ext_Extension('taoTestCenter'), 'taoTestCenterRostering/api', []);
+        $route = new ApiRoute(new common_ext_Extension('taoTestCenterRostering'), 'taoTestCenterRostering/api', []);
         $path = $route->resolve(new ServerRequest('GET', '/taoTestCenterRostering/api/eligibility'));
         $this->assertEquals(RestEligibility::class . '@get', $path);
 

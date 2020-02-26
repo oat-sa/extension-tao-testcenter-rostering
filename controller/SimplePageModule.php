@@ -52,7 +52,7 @@ abstract class SimplePageModule extends \tao_actions_SinglePageModule
      */
     protected function getLayout()
     {
-        return ['layout.tpl', 'taoTestCenter'];
+        return ['layout.tpl', 'taoTestCenterRostering'];
     }
 
     /**

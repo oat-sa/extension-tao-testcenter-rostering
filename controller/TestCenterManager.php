@@ -33,7 +33,7 @@ use oat\taoTestCenterRostering\model\TestCenterFormService;
 use oat\taoTestCenterRostering\model\TestCenterService;
 use oat\taoTestCenterRostering\model\EligibilityService;
 use oat\taoProctoring\helpers\DataTableHelper;
-use oat\taoProctoring\model\textConverter\ProctoringTextConverterTrait;
+use oat\taoTestCenterRostering\model\textConverter\TestCentersTextConverterTrait;
 
 /**
  * Proctoring Test Center controllers for test center screens
@@ -45,7 +45,7 @@ use oat\taoProctoring\model\textConverter\ProctoringTextConverterTrait;
  */
 class TestCenterManager extends \tao_actions_SaSModule
 {
-    use ProctoringTextConverterTrait;
+    use TestCentersTextConverterTrait;
 
     const COMPONENT = 'taoTestCenterRostering/component/eligibilityEditor';
 

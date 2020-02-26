@@ -81,7 +81,7 @@ class ProctorManager extends SimplePageModule
                 'proctorManager-index',
                 $data,
                 'ProctorManager/index.tpl',
-                'taoTestCenter'
+                'taoTestCenterRostering'
             );
         }
     }

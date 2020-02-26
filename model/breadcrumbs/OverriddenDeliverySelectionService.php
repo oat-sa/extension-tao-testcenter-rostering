@@ -50,7 +50,7 @@ class OverriddenDeliverySelectionService extends DeliverySelectionService
         // Adding the testcenter link.
         $breadCrumbs[] = [
             'id' => 'testCenterSelection',
-            'url' => _url('index', 'TestCenter', 'taoTestCenter', ['link-type' => 'direct']),
+            'url' => _url('index', 'taoTestCenterRostering', 'taoTestCenter', ['link-type' => 'direct']),
             'label' => __('Test centers'),
         ];
 
@@ -64,7 +64,7 @@ class OverriddenDeliverySelectionService extends DeliverySelectionService
                 $testCenterId = $testCenter->getUri();
                 $crumb = [
                     'id' => $testCenterId,
-                    'url' => _url('testCenter', 'TestCenter', 'taoTestCenter', ['testCenter' => $testCenter->getUri(), 'link-type' => 'direct']),
+                    'url' => _url('testCenter', 'taoTestCenterRostering', 'taoTestCenterRostering', ['testCenter' => $testCenter->getUri(), 'link-type' => 'direct']),
                     'label' => $testCenter->getLabel(),
                 ];
 

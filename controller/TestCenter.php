@@ -55,7 +55,7 @@ class TestCenter extends SimplePageModule
                 'testcenters-index',
                 $data,
                 'pages/index.tpl',
-                'taoTestCenter'
+                'taoTestCenterRostering'
             );
         }
     }
@@ -80,7 +80,7 @@ class TestCenter extends SimplePageModule
                 'testcenters-testcenter',
                 $data,
                 'pages/index.tpl',
-                'taoTestCenter'
+                'taoTestCenterRostering'
             );
         }
     }

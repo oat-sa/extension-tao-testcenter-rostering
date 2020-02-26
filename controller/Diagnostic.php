@@ -50,7 +50,7 @@ class Diagnostic extends SimplePageModule
                 'installedextension' => \common_ext_ExtensionsManager::singleton()->isInstalled('ltiDeliveryProvider'),
             ),
             'pages/index.tpl',
-            'taoTestCenter'
+            'taoTestCenterRostering'
         );
     }
 
@@ -69,7 +69,7 @@ class Diagnostic extends SimplePageModule
                 'config' => TestCenterHelper::getDiagnosticConfig($testCenter),
             ),
             'pages/index.tpl',
-            'taoTestCenter'
+            'taoTestCenterRostering'
         );
     }
 
