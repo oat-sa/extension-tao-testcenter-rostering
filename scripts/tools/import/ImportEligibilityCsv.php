@@ -24,7 +24,7 @@ use oat\taoTestCenterRostering\model\import\EligibilityCsvImporterFactory;
 use oat\taoTestCenterRostering\model\import\TestCenterCsvImporterFactory;
 
 /**
- * sudo -u www-data php index.php 'oat\taoTestCenter\scripts\tools\import\ImportEligibilityCsv' -f /txt.csv
+ * sudo -u www-data php index.php 'oat\taoTestCenterRostering\scripts\tools\import\ImportEligibilityCsv' -f /txt.csv
  */
 class ImportEligibilityCsv extends ScriptAction
 {

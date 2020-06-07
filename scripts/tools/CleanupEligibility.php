@@ -25,7 +25,7 @@ use common_report_Report as Report;
 use oat\taoTestCenterRostering\model\EligibilityService;
 
 /**
- * sudo -u www-data php index.php 'oat\taoTestCenter\scripts\tools\CleanupEligibility'
+ * sudo -u www-data php index.php 'oat\taoTestCenterRostering\scripts\tools\CleanupEligibility'
  */
 class CleanupEligibility extends ScriptAction
 {
