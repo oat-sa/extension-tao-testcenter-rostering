@@ -24,7 +24,7 @@ namespace oat\taoTestCenterRostering\helper;
 
 use \core_kernel_classes_Resource;
 use oat\oatbox\service\ServiceManager;
-use oat\taoProctoring\model\textConverter\ProctoringTextConverter;
+use oat\taoTestCenterRostering\model\textConverter\TestCentersTextConverter;
 
 /**
  * Allow creating breakcrumbs easily
@@ -34,7 +34,7 @@ class BreadcrumbsHelper
     /**
      * Tool to change text denomination
      *
-     * @var ProctoringTextConverter
+     * @var TestCentersTextConverter
      */
     protected static $textConverterService;
 
@@ -239,7 +239,7 @@ class BreadcrumbsHelper
     protected static function convert($key)
     {
         if (! self::$textConverterService) {
-            self::$textConverterService = ServiceManager::getServiceManager()->get(ProctoringTextConverter::SERVICE_ID);
+            self::$textConverterService = ServiceManager::getServiceManager()->get(TestCentersTextConverter::SERVICE_ID);
         }
         return self::$textConverterService->get($key);
     }

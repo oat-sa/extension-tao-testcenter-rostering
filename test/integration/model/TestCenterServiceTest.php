@@ -27,7 +27,6 @@ use oat\tao\model\TaoOntology;
 use oat\taoTestCenterRostering\model\exception\TestCenterException;
 use oat\taoTestCenterRostering\model\TestCenterService;
 use oat\oatbox\user\User;
-use oat\taoProctoring\model\ProctorService;
 use oat\taoTestCenterRostering\model\ProctorManagementService;
 
 /**
@@ -88,7 +87,6 @@ class TestCenterServiceTest extends GenerisTestCase
     public function userRoleDataProvider()
     {
         return [
-            ['proctor', ProctorService::ROLE_PROCTOR],
             ['admin', TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR],
         ];
     }

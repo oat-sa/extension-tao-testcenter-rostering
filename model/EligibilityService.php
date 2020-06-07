@@ -126,12 +126,6 @@ class EligibilityService extends ConfigurableService
             self::PROPERTY_DELIVERY_URI => $delivery
         ));
 
-        //Checking if proctoring was enabled for delivery, if not - we must bypass it in established eligibility
-//        $proctoring = $delivery->getOnePropertyValue(new Property(ProctorService::ACCESSIBLE_PROCTOR));
-//        if ($proctoring instanceof Resource && $proctoring->getUri() === ProctorService::ACCESSIBLE_PROCTOR_DISABLED) {
-//            $this->setByPassProctor($eligibilty, true);
-//        }
-
         return $eligibilty;
     }
 

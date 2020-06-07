@@ -25,7 +25,7 @@ use oat\oatbox\service\ServiceNotFoundException;
 use oat\taoTestCenterRostering\helper\TestCenterHelper;
 
 /**
- * Proctoring Diagnostic controller for the readiness check screen
+ * Diagnostic controller for the readiness check screen
  *
  * @author Open Assessment Technologies SA
  * @package oat\taoTestCenterRoastering\controller
@@ -89,8 +89,8 @@ class Diagnostic extends SimplePageModule
             $requestOptions = $this->getRequestOptions();
             $this->returnJson(TestCenterHelper::getDiagnostics($testCenter, $requestOptions));
         } catch (ServiceNotFoundException $e) {
-            \common_Logger::w('No diagnostic service defined for proctoring');
-            $this->returnError('Proctoring interface not available');
+            \common_Logger::w('No diagnostic service defined');
+            $this->returnError('Interface not available');
         }
     }
 

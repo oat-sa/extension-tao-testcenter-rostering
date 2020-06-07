@@ -33,15 +33,6 @@ return new TestCenterCsvImporterFactory([
                     ])
                 ])
             ],
-            'proctors' => [
-                ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI => new ArrayImportValueMapper([
-                    'delimiter' => '|',
-                    'valueMapper' => new RdsValidatorValueMapper([
-                        'class' => UserRdf::CLASS_URI,
-                        'property' => UserRdf::PROPERTY_LOGIN
-                    ])
-                ])
-            ],
             'sub centers' => [
                 TestCenterService::PROPERTY_CHILDREN_URI => new ArrayImportValueMapper([
                     'delimiter' => '|',

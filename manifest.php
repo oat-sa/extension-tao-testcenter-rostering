@@ -23,25 +23,22 @@ use oat\taoTestCenterRostering\scripts\update\Updater;
 
 use oat\taoTestCenterRostering\controller\Import;
 use oat\taoTestCenterRostering\model\routing\ApiRoute;
-use oat\taoTestCenterRostering\scripts\install\RegisterTestCenterEntryPoint;
 use oat\taoTestCenterRostering\controller\TestCenterManager;
 use oat\taoTestCenterRostering\scripts\install\TestCenterOverrideServices;
-use oat\taoTestCenterRostering\controller\ProctorManager;
 use oat\taoTestCenterRostering\controller\RestEligibilities;
 use oat\taoTestCenterRostering\controller\RestEligibility;
 use oat\taoTestCenterRostering\controller\RestTestCenter;
 use oat\taoTestCenterRostering\scripts\install\RegisterTestCenterEvents;
 use oat\taoTestCenterRostering\model\TestCenterService;
-use oat\taoTestCenterRostering\scripts\install\OverrideBreadcrumbsServices;
 use oat\taoTestCenterRostering\scripts\install\RegisterClientLibConfig;
 use oat\taoTestCenterRostering\controller\RestTestCenterUsers;
 
 return [
     'name' => 'taoTestcenterRostering',
     'label' => 'Test Center',
-    'description' => 'Proctoring via test-centers',
+    'description' => 'Test-centers',
     'license' => 'GPL-2.0',
-    'version' => '10.0.0',
+    'version' => '1.0.0',
     'author' => 'Open Assessment Technologies SA',
     'requires' => [
         'taoDelivery'    => '>=12.5.0',
@@ -49,11 +46,11 @@ return [
         'tao'            => '>=35.5.1',
         'taoTestTaker'   => '>=4.0.0',
         'taoDeliveryRdf' => '>=6.0.0',
+        'taoClientDiagnostic' => '>=7.5.0',
     ],
     'managementRole' => TestCenterService::ROLE_TESTCENTER_MANAGER,
     'acl' => [
         ['grant', TestCenterService::ROLE_TESTCENTER_MANAGER, TestCenterManager::class],
-        ['grant', TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR, ProctorManager::class],
         ['grant', TestCenterService::ROLE_TESTCENTER_MANAGER, Import::class],
         ['grant', TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR, Import::class],
         ['grant', TestCenterService::ROLE_TESTCENTER_MANAGER, RestEligibility::class],
@@ -63,10 +60,8 @@ return [
     ],
     'install' => [
         'php' => [
-            RegisterTestCenterEntryPoint::class,
             TestCenterOverrideServices::class,
             RegisterTestCenterEvents::class,
-            OverrideBreadcrumbsServices::class,
             RegisterClientLibConfig::class,
         ],
         'rdf' => [

@@ -23,8 +23,8 @@
 namespace oat\taoTestCenterRostering\controller;
 
 use common_session_SessionManager as SessionManager;
-use oat\taoProctoring\helpers\DataTableHelper;
 use DateTime;
+use oat\taoTestCenterRostering\helper\DataTableHelper;
 
 /**
  * Class SimplePageModule

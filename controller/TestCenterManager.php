@@ -28,16 +28,16 @@ use oat\tao\model\import\service\RdsValidatorValueMapper;
 use oat\tao\model\resources\ResourceWatcher;
 use oat\tao\model\Tree\GetTreeRequest;
 use oat\tao\model\Tree\GetTreeService;
+use oat\taoTestCenterRostering\helper\DataTableHelper;
 use oat\taoTestCenterRostering\model\gui\form\TreeFormFactory;
 use oat\taoTestCenterRostering\model\import\EligibilityCsvImporterFactory;
 use oat\taoTestCenterRostering\model\TestCenterFormService;
 use oat\taoTestCenterRostering\model\TestCenterService;
 use oat\taoTestCenterRostering\model\EligibilityService;
-use oat\taoProctoring\helpers\DataTableHelper;
 use oat\taoTestCenterRostering\model\textConverter\TestCentersTextConverterTrait;
 
 /**
- * Proctoring Test Center controllers for test center screens
+ * Test Center controllers for test center screens
  *
  * @author Open Assessment Technologies SA
  * @package oat\taoTestCenterRoastering\controller

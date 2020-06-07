@@ -24,7 +24,7 @@ namespace oat\taoTestCenterRostering\controller;
 
 use oat\tao\helpers\UserHelper;
 use oat\taoClientDiagnostic\controller\CompatibilityChecker;
-use oat\taoProctoring\helpers\TestCenterHelper;
+use oat\taoTestCenterRostering\helper\TestCenterHelper;
 use oat\taoTestCenterRostering\model\DiagnosticStorage;
 
 /**

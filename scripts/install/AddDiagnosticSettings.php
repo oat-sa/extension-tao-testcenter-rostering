@@ -60,6 +60,6 @@ class AddDiagnosticSettings extends InstallAction
         $storageService = new PaginatedSqlStorage(['persistence' => 'default']);
         $this->registerService(Storage::SERVICE_ID, $storageService);
 
-        return new \common_report_Report(\common_report_Report::TYPE_SUCCESS, 'Diagnostic settings added to Proctoring extension');
+        return new \common_report_Report(\common_report_Report::TYPE_SUCCESS, 'Diagnostic settings added');
     }
 }

@@ -15,23 +15,24 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2016 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2015 (original work) Open Assessment Technologies SA;
  *
  *
  */
 
-namespace oat\taoTestCenterRostering\model\proctoring;
+namespace oat\taoTestCenterRostering\model;
 
-use oat\taoProctoring\model\monitorCache\DeliveryMonitoringService;
+use oat\taoClientDiagnostic\model\storage\PaginatedStorage;
 
 /**
- * Interface TestCenterMonitoringService
- * Add testcenters to monitoring data
- *
- * @package oat\taoTestCenterRoastering\model\proctoring
- * @author Aleh Hutnikau <hutnikau@1pt.com>
+ * Interface DiagnosticStorage
+ * @package oat\taoTestCenter\model
  */
-interface TestCenterMonitoringService extends DeliveryMonitoringService
+interface DiagnosticStorage extends PaginatedStorage
 {
-    const TEST_CENTER_ID = 'test_center_id';
+    /**
+     * Additional columns of diagnostic storage
+     */
+    const DIAGNOSTIC_WORKSTATION = 'workstation';
+    const DIAGNOSTIC_TEST_CENTER = 'test_center';
 }

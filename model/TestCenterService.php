@@ -32,10 +32,9 @@ use oat\tao\model\GenerisServiceTrait;
 use oat\oatbox\service\ConfigurableService;
 use oat\oatbox\service\ServiceManager;
 use oat\taoTestCenterRostering\model\exception\TestCenterException;
-use oat\taoProctoring\model\ProctorService;
 
 /**
- * TestCenter Service for proctoring
+ * TestCenter Service for
  */
 class TestCenterService extends ConfigurableService
 {
@@ -255,9 +254,6 @@ class TestCenterService extends ConfigurableService
         switch ($role->getUri()) {
             case self::ROLE_TESTCENTER_ADMINISTRATOR:
                 $prop = $this->getProperty(ProctorManagementService::PROPERTY_ADMINISTRATOR_URI);
-                break;
-            case ProctorService::ROLE_PROCTOR:
-                $prop = $this->getProperty(ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI);
                 break;
             default:
                 throw new TestCenterException(__('Role is not allowed.'));
