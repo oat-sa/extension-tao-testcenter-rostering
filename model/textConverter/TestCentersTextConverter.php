@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -58,11 +59,9 @@ class TestCentersTextConverter extends TextConverterService
             'Proctors revoked' => __('Proctors revoked'),
             'Proctor created' => __('Proctor created'),
             'No proctors in request param' => __('No proctors in request param'),
-            'Test site %s' =>__('Test site %s'),
+            'Test site %s' => __('Test site %s'),
             'Test center saved' => __('Test center saved'),
             'Edit test center' => __('Edit test center')
         ];
     }
-
-
 }

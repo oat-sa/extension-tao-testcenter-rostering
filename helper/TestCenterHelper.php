@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -69,7 +70,6 @@ class TestCenterHelper
                 'label' => $testCenter->getLabel(),
                 'text' => __('Go to')
             );
-
         }
         return $entries;
     }
@@ -174,8 +174,8 @@ class TestCenterHelper
         $storageService = ServiceManager::getServiceManager()->get(Storage::SERVICE_ID);
         if ($storageService instanceof PaginatedStorage) {
             $options[DataTableHelper::OPTION_FILTER] = [DiagnosticStorage::DIAGNOSTIC_TEST_CENTER => $testCenter->getUri()];
-            return DataTableHelper::paginate($storageService, $options, function($data) {
-                foreach($data as $idx => $row) {
+            return DataTableHelper::paginate($storageService, $options, function ($data) {
+                foreach ($data as $idx => $row) {
                     $rowData = [
                         'id' => $row[DiagnosticStorage::DIAGNOSTIC_ID],
                         'workstation' => $row[DiagnosticStorage::DIAGNOSTIC_WORKSTATION] . ' (' . $row[DiagnosticStorage::DIAGNOSTIC_IP] . ')',
@@ -220,7 +220,7 @@ class TestCenterHelper
                 DiagnosticStorage::DIAGNOSTIC_TEST_CENTER => $testCenter->getUri()
             ];
 
-            foreach($ids as $id) {
+            foreach ($ids as $id) {
                 $storageService->delete($id, $filter);
             }
         } else {
@@ -248,7 +248,6 @@ class TestCenterHelper
         /** @var TestSessionHistoryService $historyService */
         $historyService = ServiceManager::getServiceManager()->get(TestSessionHistoryService::SERVICE_ID);
         return DataTableHelper::paginate($historyService->getSessionsHistory($sessions, $options), $options);
-
     }
 
     /**
@@ -277,7 +276,7 @@ class TestCenterHelper
         $deliveryService = ServiceManager::getServiceManager()->get(DeliveryService::CONFIG_ID);
         $deliveries      = ServiceManager::getServiceManager()->get(EligibilityService::SERVICE_ID)->getEligibleDeliveries($testCenter);
         $filteredExecutions = array();
-        foreach($deliveries as $delivery) {
+        foreach ($deliveries as $delivery) {
             if ($delivery->exists()) {
                 $deliveryExecutions = $deliveryService->getDeliveryExecutions($delivery->getUri());
                 foreach ($deliveryExecutions as $deliveryExecution) {
@@ -287,7 +286,7 @@ class TestCenterHelper
                     if ($finishTime && $periodStart && $periodStart > DateHelper::getTimeStamp($finishTime)) {
                         continue;
                     }
-                    if(!$finishTime && $periodStart && $periodEnd && ( DateHelper::getTimeStamp($startTime) > $periodEnd ||  DateHelper::getTimeStamp($startTime) < $periodStart )) {
+                    if (!$finishTime && $periodStart && $periodEnd && ( DateHelper::getTimeStamp($startTime) > $periodEnd ||  DateHelper::getTimeStamp($startTime) < $periodStart )) {
                         continue;
                     }
                     if ($startTime && $periodEnd && $periodEnd < DateHelper::getTimeStamp($startTime)) {
@@ -301,10 +300,10 @@ class TestCenterHelper
 
         $deliveryExecutionStateService = ServiceManager::getServiceManager()->get(DeliveryExecutionStateService::SERVICE_ID);
 
-        return DataTableHelper::paginate($filteredExecutions, $options, function($deliveryExecutions) use ($deliveryExecutionStateService) {
+        return DataTableHelper::paginate($filteredExecutions, $options, function ($deliveryExecutions) use ($deliveryExecutionStateService) {
             $reports = [];
 
-            foreach($deliveryExecutions as $deliveryExecution) {
+            foreach ($deliveryExecutions as $deliveryExecution) {
                 /* @var $deliveryExecution DeliveryExecution */
                 $startTime = $deliveryExecution->getStartTime();
                 $finishTime = $deliveryExecution->getFinishTime();
@@ -370,7 +369,7 @@ class TestCenterHelper
     {
         $irregularities = self::getDeliveryLog()->get($deliveryExecutionId, $event);
         $result = [];
-        foreach($irregularities as $irregularityReport) {
+        foreach ($irregularities as $irregularityReport) {
             $data = $irregularityReport[DeliveryLog::DATA];
             $result[] = [
                 'timestamp' => $irregularityReport[DeliveryLog::CREATED_AT],

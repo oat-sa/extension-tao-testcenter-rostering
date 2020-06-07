@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -56,7 +57,6 @@ class OverriddenDeliverySelectionService extends DeliverySelectionService
 
          //Adding the current testcenter.
         if (!empty($parsedRoute['params']['context'])) {
-
             $testCenters = TestCenterService::singleton()->getTestCentersByProctor(\common_session_SessionManager::getSession()->getUser());
             $entries = array();
             $main = null;

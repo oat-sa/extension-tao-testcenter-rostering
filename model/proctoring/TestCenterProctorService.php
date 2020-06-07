@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,6 +19,7 @@
  *
  *
  */
+
 namespace oat\taoTestCenterRostering\model\proctoring;
 
 use oat\generis\model\kernel\users\UserInternalInterface;
@@ -41,7 +43,7 @@ class TestCenterProctorService extends ProctorService
     public function getProctorableDeliveries(User $proctor, $context = null)
     {
         if (empty($context)) {
-            throw new \common_exception_Error('No testcenter specified in '.__FUNCTION__);
+            throw new \common_exception_Error('No testcenter specified in ' . __FUNCTION__);
         }
         $testCenter = $this->getResource($context);
         $elibilityService = $this->getServiceManager()->get(EligibilityService::SERVICE_ID);
@@ -57,7 +59,7 @@ class TestCenterProctorService extends ProctorService
     protected function getCriteria($delivery = null, $context = null, $options = [])
     {
         if (empty($context)) {
-            throw new \common_Exception('No testcenter specified in '.__FUNCTION__);
+            throw new \common_Exception('No testcenter specified in ' . __FUNCTION__);
         }
         $criteria = [
             [TestCenterMonitoringService::TEST_CENTER_ID => $context]

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -41,7 +42,8 @@ class Import extends \tao_actions_Import
      * @throws \oat\oatbox\service\exception\InvalidService
      * @throws \oat\oatbox\service\exception\InvalidServiceManagerException
      */
-    public function index(){
+    public function index()
+    {
 
         $importer = $this->getCurrentImporter();
         $formContainer = new tao_actions_form_Import(
@@ -64,7 +66,7 @@ class Import extends \tao_actions_Import
             $testCenterImport = $this->getServiceLocator()->get(TestCenterCsvImporterFactory::SERVICE_ID);
             $importerService = $testCenterImport->create('default');
 
-            $report = $importerService->import($file,[
+            $report = $importerService->import($file, [
                 OntologyRdf::RDF_TYPE => $options['classUri']
             ], [
                 'delimiter' => $options['field_delimiter'],
@@ -91,5 +93,4 @@ class Import extends \tao_actions_Import
 
         return $returnValue;
     }
-
 }

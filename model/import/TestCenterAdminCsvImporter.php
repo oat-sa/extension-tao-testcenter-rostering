@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -42,7 +43,7 @@ sudo -u www-data php index.php 'oat\tao\scripts\tools\import\ImportUsersCsv' -t 
  */
 class TestCenterAdminCsvImporter extends RdsUserImportService
 {
-    CONST USER_IMPORTER_TYPE = 'test-center-admin';
+    const USER_IMPORTER_TYPE = 'test-center-admin';
 
     /**
      * Add test taker role to user to import
@@ -57,7 +58,8 @@ class TestCenterAdminCsvImporter extends RdsUserImportService
     public function import($file, $extraProperties = [], $options = [])
     {
         $extraProperties[UserRdf::PROPERTY_ROLES] = TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR;
-        $extraProperties['roles'] = TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR;;
+        $extraProperties['roles'] = TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR;
+        ;
 
         return parent::import($file, $extraProperties, $options);
     }

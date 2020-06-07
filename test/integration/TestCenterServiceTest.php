@@ -22,7 +22,7 @@
 
 namespace oat\taoTestCenterRostering\test\integration;
 
-include_once dirname(__FILE__).'/../../../tao/includes/raw_start.php';
+include_once dirname(__FILE__) . '/../../../tao/includes/raw_start.php';
 
 use core_kernel_classes_Class;
 use core_kernel_classes_Property;

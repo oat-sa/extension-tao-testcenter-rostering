@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -90,7 +91,6 @@ class TestCenter extends SimplePageModule
         $testCenterService = TestCenterService::singleton();
         $currentUser = \common_session_SessionManager::getSession()->getUser();
         $testCenters = $testCenterService->getTestCentersByProctor($currentUser, $options);
-
     }
 
     /**
@@ -102,12 +102,11 @@ class TestCenter extends SimplePageModule
      */
     protected function getCurrentTestCenter()
     {
-        if($this->hasRequestParameter('testCenter')){
-
+        if ($this->hasRequestParameter('testCenter')) {
             //get test center resource from its uri
             $testCenterUri           = $this->getRequestParameter('testCenter');
             return TestCenterHelper::getTestCenter($testCenterUri);
-        }else{
+        } else {
             //@todo use a better exception
             throw new \common_Exception('no current test center');
         }

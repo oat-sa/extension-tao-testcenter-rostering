@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Default config header created during install
  */
@@ -23,7 +24,7 @@ return new TestCenterCsvImporterFactory([
             'label' => 'http://www.w3.org/2000/01/rdf-schema#label',
         ],
         'optional' => [
-            'administrators' =>[
+            'administrators' => [
                 ProctorManagementService::PROPERTY_ADMINISTRATOR_URI => new ArrayImportValueMapper([
                     'delimiter' => '|',
                     'valueMapper' => new RdsValidatorValueMapper([
@@ -32,7 +33,7 @@ return new TestCenterCsvImporterFactory([
                     ])
                 ])
             ],
-            'proctors' =>[
+            'proctors' => [
                 ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI => new ArrayImportValueMapper([
                     'delimiter' => '|',
                     'valueMapper' => new RdsValidatorValueMapper([

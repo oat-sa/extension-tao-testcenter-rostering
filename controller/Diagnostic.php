@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -37,7 +38,8 @@ class Diagnostic extends SimplePageModule
      * Display the list of all readiness checks performed on the given test center
      * It also allows launching new ones.
      */
-    public function index(){
+    public function index()
+    {
         $testCenter = $this->getCurrentTestCenter();
         $requestOptions = $this->getRequestOptions();
 
@@ -83,11 +85,9 @@ class Diagnostic extends SimplePageModule
     public function diagnosticData()
     {
         try {
-
             $testCenter = $this->getCurrentTestCenter();
             $requestOptions = $this->getRequestOptions();
             $this->returnJson(TestCenterHelper::getDiagnostics($testCenter, $requestOptions));
-
         } catch (ServiceNotFoundException $e) {
             \common_Logger::w('No diagnostic service defined for proctoring');
             $this->returnError('Proctoring interface not available');
@@ -119,12 +119,11 @@ class Diagnostic extends SimplePageModule
      */
     protected function getCurrentTestCenter()
     {
-        if($this->hasRequestParameter('testCenter')){
-
+        if ($this->hasRequestParameter('testCenter')) {
             //get test center resource from its uri
             $testCenterUri           = $this->getRequestParameter('testCenter');
             return TestCenterHelper::getTestCenter($testCenterUri);
-        }else{
+        } else {
             //@todo use a better exception
             throw new \common_Exception('no current test center');
         }

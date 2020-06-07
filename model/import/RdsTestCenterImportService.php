@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -42,31 +43,31 @@ class RdsTestCenterImportService extends AbstractImportService
 
         $results = $class->searchInstances($properties);
 
-        if (count($results) === 0){
+        if (count($results) === 0) {
             $resource = $class->createInstanceWithProperties($properties);
-        }else{
+        } else {
             $resource = current($results);
         }
 
-        if (isset($properties[ProctorManagementService::PROPERTY_ADMINISTRATOR_URI])){
+        if (isset($properties[ProctorManagementService::PROPERTY_ADMINISTRATOR_URI])) {
             $adminProctors = $properties[ProctorManagementService::PROPERTY_ADMINISTRATOR_URI];
             $propertiesValues = array(ProctorManagementService::PROPERTY_ADMINISTRATOR_URI => [$resource]);
             /** @var \core_kernel_classes_Resource $adminProctor */
-            foreach($adminProctors as $adminProctor){
+            foreach ($adminProctors as $adminProctor) {
                 $adminProctor->setPropertiesValues($propertiesValues);
             }
         }
 
-        if (isset($properties[ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI])){
+        if (isset($properties[ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI])) {
             $adminProctors = $properties[ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI];
             $propertiesValues = array(ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI => [$resource]);
             /** @var \core_kernel_classes_Resource $adminProctor */
-            foreach($adminProctors as $adminProctor){
+            foreach ($adminProctors as $adminProctor) {
                 $adminProctor->setPropertiesValues($propertiesValues);
             }
         }
 
-        if (isset($properties[TestCenterService::PROPERTY_CHILDREN_URI])){
+        if (isset($properties[TestCenterService::PROPERTY_CHILDREN_URI])) {
             $subCenters = $properties[TestCenterService::PROPERTY_CHILDREN_URI];
             $propertiesValues = array(TestCenterService::PROPERTY_CHILDREN_URI => $subCenters);
             $resource->setPropertiesValues($propertiesValues);
@@ -82,13 +83,12 @@ class RdsTestCenterImportService extends AbstractImportService
     protected function getTestCenterClass($properties)
     {
         $class = $this->getClass(TestCenterService::CLASS_URI);
-        if (isset($properties[OntologyRdf::RDF_TYPE])){
+        if (isset($properties[OntologyRdf::RDF_TYPE])) {
             $class = $this->getClass($properties[OntologyRdf::RDF_TYPE]);
             if ($class->isSubClassOf($class)) {
                 return $class;
             }
         }
         return $class;
-
     }
 }

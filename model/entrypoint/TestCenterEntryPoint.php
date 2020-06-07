@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,6 +19,7 @@
  *
  *
  */
+
 namespace oat\taoTestCenterRostering\model\entrypoint;
 
 use oat\oatbox\Configurable;
@@ -26,24 +28,28 @@ use oat\tao\model\entryPoint\Entrypoint;
 class TestCenterEntryPoint extends Configurable implements Entrypoint
 {
 
-    public function getId() {
+    public function getId()
+    {
         return 'proctoring';
     }
 
-    public function getTitle() {
+    public function getTitle()
+    {
         return __('Testcenter Proctors');
     }
 
-    public function getLabel() {
+    public function getLabel()
+    {
         return __('Testcenter Proctoring');
     }
 
-    public function getDescription() {
+    public function getDescription()
+    {
         return __('Manage testcenters and administer deliveries');
     }
 
-    public function getUrl() {
+    public function getUrl()
+    {
         return _url("index", "TestCenter", "taoTestCenter");
     }
-
 }

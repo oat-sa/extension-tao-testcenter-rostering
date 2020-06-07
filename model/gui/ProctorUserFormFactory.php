@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -41,12 +42,13 @@ class ProctorUserFormFactory extends FormFactory
     {
         $form = parent::__invoke($testCenter);
         $form->setData('dataUrl', _url(
-            'getData', 'GenerisTree', 'tao',
+            'getData',
+            'GenerisTree',
+            'tao',
             http_build_query(['filterProperties' => [
                 UserRdf::PROPERTY_ROLES => [ProctorService::ROLE_PROCTOR]
             ]])
         ));
         return $form;
     }
-
 }

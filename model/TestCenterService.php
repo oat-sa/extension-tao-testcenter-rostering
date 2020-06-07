@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,6 +19,7 @@
  *
  *
  */
+
 namespace oat\taoTestCenterRostering\model;
 
 use core_kernel_classes_Class;
@@ -152,7 +154,7 @@ class TestCenterService extends ConfigurableService
         );
         $subCenters = [];
 
-        foreach($testCenters as $testCenter){
+        foreach ($testCenters as $testCenter) {
             $subCenters = array_merge($subCenters, $this->getSubTestCenters($testCenter));
         }
 
@@ -160,7 +162,7 @@ class TestCenterService extends ConfigurableService
         $adminTestCenters = $user->getPropertyValues(ProctorManagementService::PROPERTY_ADMINISTRATOR_URI);
         $adminSubCenters = [];
 
-        foreach($adminTestCenters as $testCenter){
+        foreach ($adminTestCenters as $testCenter) {
             $adminSubCenters = array_merge($adminSubCenters, $this->getSubTestCenters($testCenter));
         }
 
@@ -171,7 +173,7 @@ class TestCenterService extends ConfigurableService
             $adminSubCenters
         );
 
-        return array_map(function($uri) {
+        return array_map(function ($uri) {
             return new core_kernel_classes_Resource($uri);
         }, $testCenters);
     }
@@ -184,12 +186,11 @@ class TestCenterService extends ConfigurableService
      */
     public function getSubTestCenters($testCenter)
     {
-        if(! $testCenter instanceof core_kernel_classes_Resource){
+        if (! $testCenter instanceof core_kernel_classes_Resource) {
             $testCenter = new core_kernel_classes_Resource($testCenter);
         }
         $childrenProperty = new core_kernel_classes_Property(self::PROPERTY_CHILDREN_URI);
         return $testCenter->getPropertyValues($childrenProperty);
-
     }
 
     /**
@@ -263,5 +264,4 @@ class TestCenterService extends ConfigurableService
         }
         return $prop;
     }
-
 }

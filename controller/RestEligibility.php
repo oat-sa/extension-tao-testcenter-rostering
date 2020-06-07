@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -363,7 +364,6 @@ class RestEligibility extends AbstractRestController
     public function get()
     {
         try {
-
             $this->returnJson($this->getEligibilityFromRequest());
         } catch (Exception $e) {
             return $this->returnFailure($e);

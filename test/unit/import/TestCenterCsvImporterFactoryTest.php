@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -52,7 +53,7 @@ class TestCenterCsvImporterFactoryTest extends TestCase
                             ),
                         );
                         break;
-                    case'default-schema':
+                    case 'default-schema':
                         return array(
                             'mandatory' => array(
                                 'label' => 'http://www.w3.org/2000/01/rdf-schema#label',

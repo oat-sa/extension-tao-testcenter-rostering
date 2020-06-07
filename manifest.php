@@ -1,6 +1,7 @@
 <?php
 
 use oat\taoTestCenterRostering\scripts\update\Updater;
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -69,8 +70,8 @@ return [
             RegisterClientLibConfig::class,
         ],
         'rdf' => [
-            __DIR__.'/scripts/install/ontology/taotestcenterrostering.rdf',
-            __DIR__.'/scripts/install/ontology/eligibility.rdf',
+            __DIR__ . '/scripts/install/ontology/taotestcenterrostering.rdf',
+            __DIR__ . '/scripts/install/ontology/eligibility.rdf',
         ]
     ],
 //    'uninstall' => array(),

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,9 +22,9 @@
 
 namespace oat\taoTestCenterRostering\scripts\install;
 
-
 use oat\oatbox\extension\InstallAction;
 use oat\tao\model\ClientLibConfigRegistry;
+
 /**
  * Class RegisterClientLibConfig
  * @package oat\taoTestCenterRoastering\scripts\install

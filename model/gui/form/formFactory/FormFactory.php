@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -97,7 +98,7 @@ class FormFactory extends ConfigurableService implements FormFactoryInterface
 
         $this->property = $this->getProperty($options['property']);
         $this->title = $options['title'];
-        $this->isReversed = (boolean) $options['isReversed'];
+        $this->isReversed = (bool) $options['isReversed'];
 
         return $this;
     }
@@ -122,5 +123,4 @@ class FormFactory extends ConfigurableService implements FormFactoryInterface
     {
         return $this->getServiceLocator()->get(TestCentersTextConverter::SERVICE_ID);
     }
-
 }

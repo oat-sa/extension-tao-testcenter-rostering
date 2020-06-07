@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -119,7 +120,7 @@ class TestCenterServiceTest extends GenerisTestCase
             $user->method('getRoles')->willReturn([
                 ProctorService::ROLE_PROCTOR,
             ]);
-        } else if ($role === 'admin') {
+        } elseif ($role === 'admin') {
             $user->method('getRoles')->willReturn([
                 TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR
             ]);

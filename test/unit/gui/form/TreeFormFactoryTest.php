@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,6 +18,7 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA;
  *
  */
+
 namespace oat\taoTestCenterRostering\test\unit\gui\form;
 
 use core_kernel_classes_Resource;
@@ -54,9 +56,9 @@ class TreeFormFactoryTest extends TestCase
         $this->assertInternalType('array', $renderForms);
         $this->assertCount(3, $renderForms);
 
-        $this->assertInternalType('string',tao_helpers_form_GenerisTreeForm::class, $renderForms[0]);
-        $this->assertInternalType('string',tao_helpers_form_GenerisTreeForm::class, $renderForms[1]);
-        $this->assertInternalType('string',tao_helpers_form_GenerisTreeForm::class, $renderForms[2]);
+        $this->assertInternalType('string', tao_helpers_form_GenerisTreeForm::class, $renderForms[0]);
+        $this->assertInternalType('string', tao_helpers_form_GenerisTreeForm::class, $renderForms[1]);
+        $this->assertInternalType('string', tao_helpers_form_GenerisTreeForm::class, $renderForms[2]);
     }
 
     /**

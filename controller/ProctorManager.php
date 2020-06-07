@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -91,10 +92,11 @@ class ProctorManager extends SimplePageModule
      * @return bool
      * @throws \common_Exception
      */
-    protected function getRequestTestCenters(){
-        if($this->hasRequestParameter('testCenters')){
+    protected function getRequestTestCenters()
+    {
+        if ($this->hasRequestParameter('testCenters')) {
             return $this->getRequestParameter('testCenters');
-        }else{
+        } else {
             return array();//may be empty
         }
     }
@@ -104,10 +106,11 @@ class ProctorManager extends SimplePageModule
      * @return bool
      * @throws \common_Exception
      */
-    protected function getRequestProctors(){
-        if($this->hasRequestParameter('proctors')){
+    protected function getRequestProctors()
+    {
+        if ($this->hasRequestParameter('proctors')) {
             return $this->getRequestParameter('proctors');
-        }else{
+        } else {
             throw new \common_Exception($this->convert('No proctors in request param'));
         }
     }
@@ -124,13 +127,13 @@ class ProctorManager extends SimplePageModule
         $currentUser = SessionManager::getSession()->getUser();
         $proctors = ProctorManagementService::singleton()->getAssignedProctors($currentUser->getIdentifier(), $testCenters);
 
-        return DataTableHelper::paginate($proctors, $requestOptions, function($proctors) use($testCenters) {
+        return DataTableHelper::paginate($proctors, $requestOptions, function ($proctors) use ($testCenters) {
             $testCentersByProctors = ProctorManagementService::singleton()->getProctorsAuthorization($testCenters);
             $nbTestCenters = count($testCenters);
 
             $authorizations = array();
 
-            foreach($proctors as $proctor) {
+            foreach ($proctors as $proctor) {
                 $userId = $proctor->getUri();
                 $user = UserHelper::getUser($proctor);
                 $lastName = UserHelper::getUserLastName($user);
@@ -143,7 +146,7 @@ class ProctorManager extends SimplePageModule
                     if (count($authorized) == $nbTestCenters) {
                         $status = self::FULLY_AUTHORIZED;
                     } else {
-                        foreach($authorized as $testCenterUri){
+                        foreach ($authorized as $testCenterUri) {
                             $testCenter = new \core_kernel_classes_Resource($testCenterUri);
                             $authorizedLabel[] = $testCenter->getLabel();
                         }
@@ -181,7 +184,8 @@ class ProctorManager extends SimplePageModule
     /**
      * Authorize the proctors to test centers
      */
-    public function authorize(){
+    public function authorize()
+    {
 
         $proctors = $this->getRequestProctors();
         $testCenters = $this->getRequestTestCenters();
@@ -197,7 +201,8 @@ class ProctorManager extends SimplePageModule
     /**
      * Unauthorize the proctors from test centers
      */
-    public function unauthorize(){
+    public function unauthorize()
+    {
 
         $proctors = $this->getRequestProctors();
         $testCenters = $this->getRequestTestCenters();
@@ -230,11 +235,11 @@ class ProctorManager extends SimplePageModule
             $proctor = $myFormContainer->getUser();
             $binder = new \tao_models_classes_dataBinding_GenerisFormDataBinder($proctor);
             $created = $binder->bind($values);
-            if($created){
+            if ($created) {
                 //assign then authorize the new proctor to the selected test centers
                 ProctorManagementService::singleton()->assignProctors(array($proctor->getUri()), SessionManager::getSession()->getUserUri());
                 $testCenters = $this->getRequestTestCenters();
-                if(!empty($testCenters)){
+                if (!empty($testCenters)) {
                     ProctorManagementService::singleton()->authorizeProctors(array($proctor->getUri()), $testCenters);
                 }
 
@@ -245,7 +250,7 @@ class ProctorManager extends SimplePageModule
                 $eventManager = $this->getServiceLocator()->get(EventManager::SERVICE_ID);
                 $eventManager->trigger(new ProctorCreatedEvent($userResource, $proctor));
             }
-        } else{
+        } else {
             $form = $myForm->render();
         }
 
@@ -253,7 +258,7 @@ class ProctorManager extends SimplePageModule
             'form' => $form,
             'valid' => $valid,
             'created' => $created,
-            'loginId'=> tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_LOGIN),
+            'loginId' => tao_helpers_Uri::encode(GenerisRdf::PROPERTY_USER_LOGIN),
             'debug' => array('values' => $myForm->getValues())
         ));
     }
