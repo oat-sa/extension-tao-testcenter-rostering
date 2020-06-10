@@ -50,15 +50,6 @@ class TestCenterServiceTest extends GenerisTestCase
         $service->assignUser($this->tc, $user, $service->getProperty(ProctorManagementService::PROPERTY_ADMINISTRATOR_URI));
     }
 
-    public function testAssignUser()
-    {
-        $service = $this->getService();
-        $user = $this->getUserMock('proctor', $service);
-        $this->assertTrue($service->assignUser($this->tc, $user, $service->getProperty(ProctorService::ROLE_PROCTOR)));
-        $assignedTc = $this->userResource->getOnePropertyValue($service->getProperty(ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI));
-        $this->assertEquals($assignedTc->getUri(), $this->tc->getUri());
-    }
-
     /**
      * @dataProvider userRoleDataProvider
      */
@@ -74,8 +65,6 @@ class TestCenterServiceTest extends GenerisTestCase
     {
         $service = $this->getService();
         $user = $this->getUserMock('proctor', $service);
-        $this->assertTrue($service->assignUser($this->tc, $user, $service->getProperty(ProctorService::ROLE_PROCTOR)));
-        $this->assertTrue($service->unassignUser($this->tc, $user, $service->getProperty(ProctorService::ROLE_PROCTOR)));
 
         $assignedTc = $this->userResource->getOnePropertyValue($service->getProperty(ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI));
         $this->assertNull($assignedTc);
@@ -114,11 +103,7 @@ class TestCenterServiceTest extends GenerisTestCase
         $this->userResource = $userClass->createInstance($role);
         $user->method('getIdentifier')->willReturn($this->userResource->getUri());
 
-        if ($role === 'proctor') {
-            $user->method('getRoles')->willReturn([
-                ProctorService::ROLE_PROCTOR,
-            ]);
-        } elseif ($role === 'admin') {
+      if ($role === 'admin') {
             $user->method('getRoles')->willReturn([
                 TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR
             ]);

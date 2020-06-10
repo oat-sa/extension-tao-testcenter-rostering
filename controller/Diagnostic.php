@@ -21,6 +21,7 @@
 
 namespace oat\taoTestCenterRostering\controller;
 
+use core_kernel_classes_Resource;
 use oat\oatbox\service\ServiceNotFoundException;
 use oat\taoTestCenterRostering\helper\TestCenterHelper;
 

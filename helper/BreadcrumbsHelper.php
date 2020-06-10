@@ -217,18 +217,6 @@ class BreadcrumbsHelper
         return $breadcrumbs;
     }
 
-    /**
-     * Create breadcrumb for ProctorManager::index
-     * @return array
-     */
-    public static function proctorManager()
-    {
-        return array(
-            'id' => 'proctorManager',
-            'url' => _url('index', 'ProctorManager'),
-            'label' => self::convert('Manage Proctors')
-        );
-    }
 
     /**
      * Convert a text $key by TextConverterService content

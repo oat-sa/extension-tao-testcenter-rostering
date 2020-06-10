@@ -22,10 +22,10 @@
 namespace oat\taoTestCenterRostering\test\unit\gui\form;
 
 use core_kernel_classes_Resource;
+use oat\generis\test\TestCase;
 use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactoryInterface;
 use oat\taoTestCenterRostering\model\gui\form\TreeFormFactory;
 use tao_helpers_form_GenerisTreeForm;
-use oat\generis\test\TestCase;
 
 class TreeFormFactoryTest extends TestCase
 {
@@ -35,7 +35,7 @@ class TreeFormFactoryTest extends TestCase
         $treeFormFactory = $this->getService();
         $forms = $treeFormFactory->getForms();
 
-        $this->assertInternalType('array', $forms);
+        $this->assertIsArray($forms);
         $this->assertCount(3, $forms);
         $this->assertInstanceOf(FormFactoryInterface::class, $forms[0]);
         $this->assertInstanceOf(FormFactoryInterface::class, $forms[1]);
@@ -53,12 +53,12 @@ class TreeFormFactoryTest extends TestCase
             $this->getMockBuilder(core_kernel_classes_Resource::class)->disableOriginalConstructor()->getMock()
         );
 
-        $this->assertInternalType('array', $renderForms);
+        $this->assertIsArray($renderForms);
         $this->assertCount(3, $renderForms);
 
-        $this->assertInternalType('string', tao_helpers_form_GenerisTreeForm::class, $renderForms[0]);
-        $this->assertInternalType('string', tao_helpers_form_GenerisTreeForm::class, $renderForms[1]);
-        $this->assertInternalType('string', tao_helpers_form_GenerisTreeForm::class, $renderForms[2]);
+        $this->assertIsString(tao_helpers_form_GenerisTreeForm::class, $renderForms[0]);
+        $this->assertIsString(tao_helpers_form_GenerisTreeForm::class, $renderForms[1]);
+        $this->assertIsString(tao_helpers_form_GenerisTreeForm::class, $renderForms[2]);
     }
 
     /**
@@ -74,11 +74,14 @@ class TreeFormFactoryTest extends TestCase
             ->method('buildService')
             ->willReturn($this->mockFormFactory());
 
-        $service->setOption(TreeFormFactory::OPTION_FORM_FACTORIES, [
-            $this->mockFormFactory(),
-            $this->mockFormFactory(),
-            $this->mockFormFactory(),
-        ]);
+        $service->setOption(
+            TreeFormFactory::OPTION_FORM_FACTORIES,
+            [
+                $this->mockFormFactory(),
+                $this->mockFormFactory(),
+                $this->mockFormFactory(),
+            ]
+        );
 
         return $service;
     }
