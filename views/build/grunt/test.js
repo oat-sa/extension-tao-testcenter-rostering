@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     /**
      * tests to run
      */
-    qunit.taotestcenter = {
+    qunit.taotestcenterrostering = {
         options : {
             console : true,
             urls : extractTests()
@@ -27,9 +27,9 @@ module.exports = function(grunt) {
     };
 
 
-    watch.taotestcenter = {
+    watch.taotestcenterrostering = {
         files : [testRunners, testFiles],
-        tasks : ['qunit:taotestcenter'],
+        tasks : ['qunit:taotestcenterrostering'],
         options : {
             debounceDelay : 10000
         }

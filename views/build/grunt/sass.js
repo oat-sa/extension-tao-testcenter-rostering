@@ -6,21 +6,21 @@ module.exports = function(grunt) {
     var notify  = grunt.config('notify') || {};
     var root    = grunt.option('root') + '/taoTestCenterRostering/views/';
 
-    sass.taotestcenter = { };
-    sass.taotestcenter.files = { };
-    sass.taotestcenter.files[root + 'css/testcenter.css'] = root + 'scss/testcenter.scss';
-    sass.taotestcenter.files[root + 'css/eligibilityEditor.css'] = root + 'scss/eligibilityEditor.scss';
-    sass.taotestcenter.files[root + 'css/eligibilityTable.css']  = root + 'scss/eligibilityTable.scss';
+    sass.taotestcenterrostering = { };
+    sass.taotestcenterrostering.files = { };
+    sass.taotestcenterrostering.files[root + 'css/testcenter.css'] = root + 'scss/testcenter.scss';
+    sass.taotestcenterrostering.files[root + 'css/eligibilityEditor.css'] = root + 'scss/eligibilityEditor.scss';
+    sass.taotestcenterrostering.files[root + 'css/eligibilityTable.css']  = root + 'scss/eligibilityTable.scss';
 
-    watch.taotestcentersass = {
+    watch.taotestcenterrosteringsass = {
         files : [root + 'scss/*.scss'],
-        tasks : ['sass:taotestcenter', 'notify:taotestcentersass'],
+        tasks : ['sass:taotestcenterrostering', 'notify:taotestcenterrosteringsass'],
         options : {
             debounceDelay : 1000
         }
     };
 
-    notify.taotestcentersass = {
+    notify.taotestcenterrosteringsass = {
         options: {
             title: 'Grunt SASS',
             message: 'SASS files compiled to CSS'
