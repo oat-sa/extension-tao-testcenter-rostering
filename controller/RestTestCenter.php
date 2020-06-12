@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -309,7 +310,7 @@ class RestTestCenter extends AbstractRestController
         foreach (array_keys($this->parametersMap) as $name) {
             if (array_key_exists($name, $data)) {
                 $values[$name] = $data[$name];
-            } else if ($isRequired) {
+            } elseif ($isRequired) {
                 throw new common_exception_RestApi(__('Missed required parameter: `%s`', $name), 400);
             }
         }

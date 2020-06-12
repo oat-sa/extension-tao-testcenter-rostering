@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -35,5 +36,4 @@ class SubTestCenterFormFactory extends FormFactory
         $form->setHiddenNodes(array($testCenter->getUri()));
         return $form;
     }
-
 }

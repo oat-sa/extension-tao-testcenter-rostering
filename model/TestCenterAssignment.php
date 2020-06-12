@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,6 +18,7 @@
  * Copyright (c) 2015 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  */
+
 namespace oat\taoTestCenterRostering\model;
 
 use oat\tao\model\TaoOntology;
@@ -61,7 +63,7 @@ class TestCenterAssignment extends GroupAssignment
     public function assign($testTakerIds, $assignment)
     {
         $property = $this->getProperty(self::PROPERTY_TESTTAKER_ASSIGNED);
-        foreach($testTakerIds as $testTakerId) {
+        foreach ($testTakerIds as $testTakerId) {
             $this->getResource($testTakerId)->setPropertyValue($property, $assignment);
         }
     }
@@ -76,7 +78,7 @@ class TestCenterAssignment extends GroupAssignment
     public function unassign($testTakerIds, $assignment)
     {
         $property = $this->getProperty(self::PROPERTY_TESTTAKER_ASSIGNED);
-        foreach($testTakerIds as $testTakerId) {
+        foreach ($testTakerIds as $testTakerId) {
             $this->getResource($testTakerId)->removePropertyValue($property, $assignment);
         }
     }
@@ -92,9 +94,10 @@ class TestCenterAssignment extends GroupAssignment
         $instances = $this->getClass(TaoOntology::SUBJECT_CLASS_URI)->searchInstances(
             [
               self::PROPERTY_TESTTAKER_ASSIGNED => $assignment->getUri()
-            ],['recursive' => true, 'like' => false]
+            ],
+            ['recursive' => true, 'like' => false]
         );
-        foreach($instances as $testTaker) {
+        foreach ($instances as $testTaker) {
             $testTaker->removePropertyValue($this->getProperty(self::PROPERTY_TESTTAKER_ASSIGNED), $assignment);
         }
     }
@@ -109,7 +112,7 @@ class TestCenterAssignment extends GroupAssignment
         $deliveryProp = $this->getProperty(EligibilityService::PROPERTY_DELIVERY_URI);
 
         //check for guest access mode
-        if($this->isDeliveryGuestUser($user) && $this->hasDeliveryGuestAccess($delivery)){
+        if ($this->isDeliveryGuestUser($user) && $this->hasDeliveryGuestAccess($delivery)) {
             return true;
         }
 

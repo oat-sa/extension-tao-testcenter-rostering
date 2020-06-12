@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,7 +22,6 @@
 namespace oat\taoTestCenterRostering\model\eligibility;
 
 use core_kernel_classes_Resource;
-
 use oat\oatbox\event\Event;
 
 class EligiblityChanged implements Event
@@ -57,7 +57,7 @@ class EligiblityChanged implements Event
      * @param string[] $previousTestTakerCollection
      * @param string[] $actualTestTakersCollection optional, should improve performance to reduce calculations
      */
-    public function __construct(core_kernel_classes_Resource $eligiblity, array $previousTestTakerCollection , array $actualTestTakersCollection = [])
+    public function __construct(core_kernel_classes_Resource $eligiblity, array $previousTestTakerCollection, array $actualTestTakersCollection = [])
     {
         $this->eligiblity = $eligiblity;
         $this->previousTestTakerCollection = $previousTestTakerCollection;

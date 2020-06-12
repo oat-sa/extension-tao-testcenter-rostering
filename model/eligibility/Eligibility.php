@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -26,7 +27,6 @@ use Zend\ServiceManager\ServiceLocatorAwareTrait;
 use Zend\ServiceManager\ServiceLocatorAwareInterface;
 use oat\taoTestCenterRostering\model\EligibilityService;
 use oat\generis\model\OntologyAwareTrait;
-
 
 /**
  * Class Eligibility
@@ -98,12 +98,11 @@ class Eligibility implements \JsonSerializable, ServiceLocatorAwareInterface
      */
     private $proctored;
 
-    private $current_resourse =null;
+    private $current_resourse = null;
 
     public function __construct($id)
     {
         $this->id = $id;
-
     }
 
     /**
@@ -157,8 +156,9 @@ class Eligibility implements \JsonSerializable, ServiceLocatorAwareInterface
      * @return string
      * @throws \core_kernel_persistence_Exception
      */
-    public function getProctorBypassed(){
-        if($this->proctored === null){
+    public function getProctorBypassed()
+    {
+        if ($this->proctored === null) {
             $byPass = $this->getCurrentResource($this->id)->getOnePropertyValue(new core_kernel_classes_Property(EligibilityService::PROPERTY_BYPASSPROCTOR_URI));
             $this->proctored = $byPass instanceof \core_kernel_classes_Resource
                 ? $byPass->getUri()
@@ -187,7 +187,7 @@ class Eligibility implements \JsonSerializable, ServiceLocatorAwareInterface
             'delivery' => $this->getDelivery()->getUri(),
             'testCenter' => $this->getTestCenter()->getUri(),
             'testTakers' => $this->getTestTakers(),
-            'proctored'=> $this->isProctorBypassed(),
+            'proctored' => $this->isProctorBypassed(),
             'id' => $this->getId(),
         ];
     }
@@ -202,11 +202,9 @@ class Eligibility implements \JsonSerializable, ServiceLocatorAwareInterface
 
     private function getCurrentResource($id)
     {
-        if($this->current_resourse == null){
+        if ($this->current_resourse == null) {
             $this->current_resourse = $this->getResource($id);
         }
         return $this->current_resourse;
     }
-
-
 }

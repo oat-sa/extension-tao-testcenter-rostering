@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -60,7 +61,7 @@ class EligibilityServiceTest extends TestCase
      */
     private $testCenterAssignmentMock;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->eligibilityService = new EligibilityService([]);
@@ -145,4 +146,3 @@ class EligibilityServiceTest extends TestCase
         $this->eligibilityService->deleteEligibilitiesByDelivery('uri');
     }
 }
-

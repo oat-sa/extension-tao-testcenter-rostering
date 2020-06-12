@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -35,7 +36,7 @@ class ApiRouteTest extends TestCase
 {
     public function testResolve()
     {
-        $route = new ApiRoute(new common_ext_Extension('taoTestCenter'), 'taoTestCenterRostering/api', []);
+        $route = new ApiRoute(new common_ext_Extension('taoTestCenterRostering'), 'taoTestCenterRostering/api', []);
         $path = $route->resolve(new ServerRequest('GET', '/taoTestCenterRostering/api/eligibility'));
         $this->assertEquals(RestEligibility::class . '@get', $path);
 

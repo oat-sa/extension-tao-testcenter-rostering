@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -22,9 +23,10 @@
 namespace oat\taoTestCenterRostering\model;
 
 use oat\taoClientDiagnostic\model\storage\PaginatedStorage;
+
 /**
  * Interface DiagnosticStorage
- * @package oat\taoTestCenterRoastering\model
+ * @package oat\taoTestCenter\model
  */
 interface DiagnosticStorage extends PaginatedStorage
 {

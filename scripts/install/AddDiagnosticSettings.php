@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,6 +18,7 @@
  * Copyright (c) 2016 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  */
+
 namespace oat\taoTestCenterRostering\scripts\install;
 
 use oat\taoClientDiagnostic\model\authorization\Anonymous;
@@ -58,6 +60,6 @@ class AddDiagnosticSettings extends InstallAction
         $storageService = new PaginatedSqlStorage(['persistence' => 'default']);
         $this->registerService(Storage::SERVICE_ID, $storageService);
 
-        return new \common_report_Report(\common_report_Report::TYPE_SUCCESS, 'Diagnostic settings added to Proctoring extension');
+        return new \common_report_Report(\common_report_Report::TYPE_SUCCESS, 'Diagnostic settings added');
     }
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -21,48 +22,29 @@
 
 namespace oat\taoTestCenterRostering\scripts\install;
 
+use common_Exception;
+use common_report_Report;
+use oat\oatbox\extension\InstallAction;
 use oat\tao\model\user\import\UserCsvImporterFactory;
-use oat\taoProctoring\model\authorization\TestTakerAuthorizationInterface;
-use oat\taoProctoring\model\ProctorServiceInterface;
 use oat\taoTestCenterRostering\model\import\TestCenterAdminCsvImporter;
-use oat\taoTestCenterRostering\model\proctoring\TestCenterProctorService;
 use oat\taoTestCenterRostering\model\TestCenterAssignment;
 use oat\taoDelivery\model\AssignmentService;
-use oat\taoTestCenterRostering\model\proctoring\TestCenterAuthorizationService;
 
 /**
  * Class TestCenterOverrideServices
  * @package oat\taoTestCenterRoastering\scripts\install
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
-class TestCenterOverrideServices extends \common_ext_action_InstallAction
+class TestCenterOverrideServices extends InstallAction
 {
     /**
      * @param $params
+     * @throws common_Exception
      */
     public function __invoke($params)
     {
-        $this->registerService(AssignmentService::CONFIG_ID, new TestCenterAssignment());
-        $this->registerTestTakerAuthorizationService();
-        $this->registerProctorService();
+        $this->registerService(AssignmentService::SERVICE_ID, new TestCenterAssignment());
         $this->registerTestCenterAdminCsvImporter();
-    }
-
-    private function registerTestTakerAuthorizationService()
-    {
-        $delegator = $this->getServiceManager()->get(TestTakerAuthorizationInterface::SERVICE_ID);
-        $delegator->registerHandler(new TestCenterAuthorizationService());
-        $this->getServiceManager()->register(TestTakerAuthorizationInterface::SERVICE_ID, $delegator);
-    }
-
-    /**
-     * Add new Proctor Service to the chain responsibility
-     */
-    private function registerProctorService()
-    {
-        $delegator = $this->getServiceManager()->get(ProctorServiceInterface::SERVICE_ID);
-        $delegator->registerHandler(new TestCenterProctorService());
-        $this->getServiceManager()->register(ProctorServiceInterface::SERVICE_ID, $delegator);
     }
 
     private function registerTestCenterAdminCsvImporter()
@@ -74,6 +56,6 @@ class TestCenterOverrideServices extends \common_ext_action_InstallAction
         );
         $importerFactory->setOption(UserCsvImporterFactory::OPTION_MAPPERS, $typeOptions);
         $this->registerService(UserCsvImporterFactory::SERVICE_ID, $importerFactory);
-        return \common_report_Report::createSuccess('TestCenterAdmin csv importer successfully registered.');
+        return common_report_Report::createSuccess('TestCenterAdmin csv importer successfully registered.');
     }
 }

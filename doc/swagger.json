@@ -12,7 +12,7 @@
         ],
         "summary": "Search for eligibilities",
         "description": "Search for eligibilities",
-        "operationId": "oat\\taoTestCenter\\controller\\RestEligibilities::get",
+        "operationId": "oat\\taoTestCenterRostering\\controller\\RestEligibilities::get",
         "parameters": [
           {
             "name": "delivery",
@@ -94,7 +94,7 @@
         ],
         "summary": "Get eligibility data",
         "description": "Get eligibility data",
-        "operationId": "oat\\taoTestCenter\\controller\\RestEligibility::get",
+        "operationId": "oat\\taoTestCenterRostering\\controller\\RestEligibility::get",
         "parameters": [
           {
             "name": "eligibility",
@@ -164,7 +164,7 @@
         ],
         "summary": "Update eligibility test-takers",
         "description": "Update eligibility test-takers list",
-        "operationId": "oat\\taoTestCenter\\controller\\RestEligibility::put",
+        "operationId": "oat\\taoTestCenterRostering\\controller\\RestEligibility::put",
         "parameters": [
           {
             "name": "eligibility",
@@ -261,7 +261,7 @@
         ],
         "summary": "Create new eligibility",
         "description": "Create new test center eligibility by test center uri and delivery",
-        "operationId": "oat\\taoTestCenter\\controller\\RestEligibility::post",
+        "operationId": "oat\\taoTestCenterRostering\\controller\\RestEligibility::post",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -361,7 +361,7 @@
         ],
         "summary": "Get test center data",
         "description": "Get test center data",
-        "operationId": "oat\\taoTestCenter\\controller\\RestTestCenter::get",
+        "operationId": "oat\\taoTestCenterRostering\\controller\\RestTestCenter::get",
         "parameters": [
           {
             "name": "testCenter",
@@ -421,7 +421,7 @@
         ],
         "summary": "Create new test center",
         "description": "Create new test center",
-        "operationId": "oat\\taoTestCenter\\controller\\RestTestCenter::post",
+        "operationId": "oat\\taoTestCenterRostering\\controller\\RestTestCenter::post",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -498,7 +498,7 @@
         ],
         "summary": "Assign user to the test center",
         "description": "Assign user to the test center",
-        "operationId": "oat\\taoTestCenter\\controller\\RestTestCenterUsers::post",
+        "operationId": "oat\\taoTestCenterRostering\\controller\\RestTestCenterUsers::post",
         "requestBody": {
           "content": {
             "application/x-www-form-urlencoded": {
@@ -590,7 +590,7 @@
         ],
         "summary": "Remove user from the test center",
         "description": "Remove user from the test center",
-        "operationId": "oat\\taoTestCenter\\controller\\RestTestCenterUsers::delete",
+        "operationId": "oat\\taoTestCenterRostering\\controller\\RestTestCenterUsers::delete",
         "parameters": [
           {
             "name": "testCenter",

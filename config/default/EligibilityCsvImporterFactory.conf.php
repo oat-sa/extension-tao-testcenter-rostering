@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Default config header created during install
  */
@@ -8,11 +9,14 @@ use oat\tao\model\import\service\ArrayImportValueMapper;
 use oat\tao\model\import\service\RdsValidatorValueMapper;
 use oat\taoDeliveryRdf\model\DeliveryAssemblyService;
 use oat\taoTestCenterRostering\model\EligibilityService;
+use oat\taoTestCenterRostering\model\import\RdsEligibilityImportService;
 use oat\taoTestCenterRostering\model\TestCenterService;
+use oat\taoTestCenterRostering\model\import\EligibilityCsvImporterFactory;
 
-return new oat\taoTestCenter\model\import\EligibilityCsvImporterFactory(array(
-    'default-schema' => array(
-        'mandatory' => array(
+return new EligibilityCsvImporterFactory(
+    [
+    'default-schema' => [
+        'mandatory' => [
             'test center' => [
                 EligibilityService::PROPERTY_TESTCENTER_URI => new RdsValidatorValueMapper([
                     RdsValidatorValueMapper::OPTION_CLASS  => TestCenterService::CLASS_URI,
@@ -32,14 +36,15 @@ return new oat\taoTestCenter\model\import\EligibilityCsvImporterFactory(array(
                     ])
                 ])
             ],
-        ),
+        ],
         'optional' => [
             'is proctored' => EligibilityService::PROPERTY_BYPASSPROCTOR_URI
         ]
-    ),
-    'mappers' => array(
-        'default' => array(
-            'importer' => new oat\taoTestCenter\model\import\RdsEligibilityImportService()
-        )
-    )
-));
+    ],
+    'mappers' => [
+        'default' => [
+            'importer' => new RdsEligibilityImportService()
+        ]
+    ]
+    ]
+);

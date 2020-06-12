@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -23,7 +24,7 @@ use oat\oatbox\extension\script\ScriptAction;
 use oat\taoTestCenterRostering\model\import\TestCenterCsvImporterFactory;
 
 /**
- * sudo -u www-data php index.php 'oat\taoTestCenter\scripts\tools\import\ImportTestCentersCsv' -f /txt.csv
+ * sudo -u www-data php index.php 'oat\taoTestCenterRostering\scripts\tools\import\ImportTestCentersCsv' -f /txt.csv
  */
 class ImportTestCentersCsv extends ScriptAction
 {
@@ -58,5 +59,4 @@ class ImportTestCentersCsv extends ScriptAction
 
         return $importer->import($this->getOption('file-path'), []);
     }
-
 }
