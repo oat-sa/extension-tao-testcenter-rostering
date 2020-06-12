@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2015-2020 (original work) Open Assessment Technologies SA;
  *
  *
  */
@@ -24,6 +24,7 @@ namespace oat\taoTestCenterRostering\controller;
 
 use common_session_SessionManager as SessionManager;
 use DateTime;
+use oat\taoClientDiagnostic\model\diagnostic\Paginator;
 use oat\taoTestCenterRostering\helper\DataTableHelper;
 
 /**
@@ -97,8 +98,8 @@ abstract class SimplePageModule extends \tao_actions_SinglePageModule
     {
         $today = new DateTime();
         return [
-            'page' => DataTableHelper::DEFAULT_PAGE,
-            'rows' => DataTableHelper::DEFAULT_ROWS,
+            'page' => Paginator::DEFAULT_PAGE,
+            'rows' => Paginator::DEFAULT_ROWS,
             'sortby' => 'id',
             'sortorder' => DataTableHelper::DEFAULT_SORT_ORDER,
             'filter' => null,

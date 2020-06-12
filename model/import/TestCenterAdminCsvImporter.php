@@ -15,11 +15,14 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
+ * Copyright (c) 2018-2020 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
 namespace oat\taoTestCenterRostering\model\import;
 
+use common_exception_Error;
+use common_report_Report;
+use Exception;
 use oat\generis\model\user\UserRdf;
 use oat\tao\model\user\import\RdsUserImportService;
 use oat\taoTestCenterRostering\model\TestCenterService;
@@ -43,7 +46,7 @@ sudo -u www-data php index.php 'oat\tao\scripts\tools\import\ImportUsersCsv' -t 
  */
 class TestCenterAdminCsvImporter extends RdsUserImportService
 {
-    const USER_IMPORTER_TYPE = 'test-center-admin';
+    public const USER_IMPORTER_TYPE = 'test-center-admin';
 
     /**
      * Add test taker role to user to import
@@ -51,15 +54,14 @@ class TestCenterAdminCsvImporter extends RdsUserImportService
      * @param $file
      * @param array $extraProperties
      * @param array $options
-     * @return \common_report_Report
-     * @throws \Exception
-     * @throws \common_exception_Error
+     * @return common_report_Report
+     * @throws Exception
+     * @throws common_exception_Error
      */
     public function import($file, $extraProperties = [], $options = [])
     {
         $extraProperties[UserRdf::PROPERTY_ROLES] = TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR;
         $extraProperties['roles'] = TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR;
-        ;
 
         return parent::import($file, $extraProperties, $options);
     }

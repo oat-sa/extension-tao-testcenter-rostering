@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2018 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2018-2020 (original work) Open Assessment Technologies SA;
  *
  */
 
@@ -28,6 +28,7 @@ use oat\tao\model\import\service\RdsValidatorValueMapper;
 use oat\tao\model\resources\ResourceWatcher;
 use oat\tao\model\Tree\GetTreeRequest;
 use oat\tao\model\Tree\GetTreeService;
+use oat\taoClientDiagnostic\model\diagnostic\Paginator;
 use oat\taoTestCenterRostering\helper\DataTableHelper;
 use oat\taoTestCenterRostering\model\gui\form\TreeFormFactory;
 use oat\taoTestCenterRostering\model\import\EligibilityCsvImporterFactory;
@@ -369,8 +370,8 @@ class TestCenterManager extends \tao_actions_SaSModule
     protected function getRequestOptions()
     {
 
-        $page = $this->hasRequestParameter('page') ? $this->getRequestParameter('page') : DataTableHelper::DEFAULT_PAGE;
-        $rows = $this->hasRequestParameter('rows') ? $this->getRequestParameter('rows') : DataTableHelper::DEFAULT_ROWS;
+        $page = $this->hasRequestParameter('page') ? $this->getRequestParameter('page') : Paginator::DEFAULT_PAGE;
+        $rows = $this->hasRequestParameter('rows') ? $this->getRequestParameter('rows') : Paginator::DEFAULT_ROWS;
         $sortBy = $this->hasRequestParameter('sortby') ? $this->getRequestParameter('sortby') : 'Delivery';
         $sortOrder = $this->hasRequestParameter('sortorder') ? $this->getRequestParameter('sortorder') : 'asc';
         $filter = $this->hasRequestParameter('filter') ? $this->getRequestParameter('filter') : null;

@@ -15,7 +15,7 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015 (original work) Open Assessment Technologies SA ;
+ * Copyright (c) 2015-2020 (original work) Open Assessment Technologies SA ;
  *
  */
 
@@ -29,6 +29,7 @@ use common_ext_ExtensionsManager;
 use common_session_SessionManager;
 use oat\oatbox\service\ServiceManager;
 use oat\oatbox\service\ServiceNotFoundException;
+use oat\taoClientDiagnostic\model\diagnostic\Paginator;
 use oat\taoClientDiagnostic\model\storage\PaginatedStorage;
 use oat\taoClientDiagnostic\model\storage\Storage;
 use oat\taoDelivery\model\execution\DeliveryExecution;
@@ -165,7 +166,7 @@ class TestCenterHelper
     {
         $storageService = ServiceManager::getServiceManager()->get(Storage::SERVICE_ID);
         if ($storageService instanceof PaginatedStorage) {
-            $options[DataTableHelper::OPTION_FILTER] = [DiagnosticStorage::DIAGNOSTIC_TEST_CENTER => $testCenter->getUri()];
+            $options[Paginator::OPTION_FILTER] = [DiagnosticStorage::DIAGNOSTIC_TEST_CENTER => $testCenter->getUri()];
             return DataTableHelper::paginate($storageService, $options, function ($data) {
                 foreach ($data as $idx => $row) {
                     $rowData = [
