@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,11 +19,11 @@
  *
  */
 
-namespace oat\taoTestCenter\test\integration\gui\form\formFactory;
+namespace oat\taoTestCenterRostering\test\integration\gui\form\formFactory;
 
 use core_kernel_classes_Resource;
-use oat\taoProctoring\model\textConverter\ProctoringTextConverter;
-use oat\taoTestCenter\model\gui\form\formFactory\FormFactory;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactory;
+use oat\taoTestCenterRostering\model\textConverter\TestCentersTextConverter;
 use tao_helpers_form_GenerisTreeForm;
 use oat\generis\test\TestCase;
 
@@ -54,7 +55,7 @@ class FormFactoryTest extends TestCase
         $factory
             ->method('getTextConverterService')
             ->willReturn(
-                $this->mockProctoringTextConverter()
+                $this->mockTextConverter()
             );
 
         $factory
@@ -76,8 +77,8 @@ class FormFactoryTest extends TestCase
         return $form;
     }
 
-    protected function mockProctoringTextConverter()
+    protected function mockTextConverter()
     {
-        return $this->getMockBuilder(ProctoringTextConverter::class)->disableOriginalConstructor()->getMock();
+        return $this->getMockBuilder(TestCentersTextConverter::class)->disableOriginalConstructor()->getMock();
     }
 }

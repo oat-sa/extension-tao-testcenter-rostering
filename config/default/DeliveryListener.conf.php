@@ -1,4 +1,5 @@
 <?php
-use oat\taoTestCenter\model\listener\DeliveryListener;
+
+use oat\taoTestCenterRostering\model\listener\DeliveryListener;
 
 return new DeliveryListener([]);

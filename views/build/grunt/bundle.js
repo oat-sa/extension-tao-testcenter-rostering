@@ -25,16 +25,16 @@ module.exports = function(grunt) {
 
     grunt.config.merge({
         bundle : {
-            taotestcenter : {
+            taotestcenterrostering : {
                 options : {
-                    extension : 'taoTestCenter',
+                    extension : 'taoTestCenterRostering',
                     outputDir : 'loader',
                     paths: require('./paths'),
-                    dependencies : ['taoProctoring'],
+                    dependencies : [],
                     bundles : [{
-                        name : 'taoTestCenter',
+                        name : 'taoTestCenterRostering',
                         default : true,
-                        include : ['taoTestCenter/component/**/*']
+                        include : ['taoTestCenterRostering/component/**/*']
                     }]
                 }
             }
@@ -42,5 +42,5 @@ module.exports = function(grunt) {
     });
 
     // bundle task
-    grunt.registerTask('taotestcenterbundle', ['bundle:taotestcenter']);
+    grunt.registerTask('taotestcenterrosteringbundle', ['bundle:taotestcenterrostering']);
 };

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,14 +20,14 @@
  *
  */
 
-namespace oat\taoTestCenter\scripts\install;
-
+namespace oat\taoTestCenterRostering\scripts\install;
 
 use oat\oatbox\extension\InstallAction;
 use oat\tao\model\ClientLibConfigRegistry;
+
 /**
  * Class RegisterClientLibConfig
- * @package oat\taoTestCenter\scripts\install
+ * @package oat\taoTestCenterRoastering\scripts\install
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class RegisterClientLibConfig extends InstallAction
@@ -37,7 +38,7 @@ class RegisterClientLibConfig extends InstallAction
      */
     public function __invoke($params)
     {
-        ClientLibConfigRegistry::getRegistry()->register('taoTestCenter/component/eligibilityEditor', [
+        ClientLibConfigRegistry::getRegistry()->register('taoTestCenterRostering/component/eligibilityEditor', [
             'deliveriesOrder' => 'http://www.w3.org/2000/01/rdf-schema#label',
             'deliveriesOrderdir' => 'asc',
         ]);

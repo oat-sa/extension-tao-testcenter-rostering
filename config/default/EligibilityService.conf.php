@@ -1,5 +1,6 @@
 <?php
-use oat\taoTestCenter\model\EligibilityService;
+
+use oat\taoTestCenterRostering\model\EligibilityService;
 
 return new EligibilityService([
     EligibilityService::OPTION_MANAGEABLE => false

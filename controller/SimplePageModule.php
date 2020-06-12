@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -14,23 +15,24 @@
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
  *
- * Copyright (c) 2015 (original work) Open Assessment Technologies SA;
+ * Copyright (c) 2015-2020 (original work) Open Assessment Technologies SA;
  *
  *
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use common_session_SessionManager as SessionManager;
-use oat\taoProctoring\helpers\DataTableHelper;
 use DateTime;
+use oat\taoClientDiagnostic\model\diagnostic\Paginator;
+use oat\taoTestCenterRostering\helper\DataTableHelper;
 
 /**
  * Class SimplePageModule
  * Base test center interface controller
  *
  * @author Open Assessment Technologies SA
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @license GPL-2.0
  */
 abstract class SimplePageModule extends \tao_actions_SinglePageModule
@@ -52,7 +54,7 @@ abstract class SimplePageModule extends \tao_actions_SinglePageModule
      */
     protected function getLayout()
     {
-        return ['layout.tpl', 'taoTestCenter'];
+        return ['layout.tpl', 'taoTestCenterRostering'];
     }
 
     /**
@@ -61,7 +63,8 @@ abstract class SimplePageModule extends \tao_actions_SinglePageModule
      * @param array $defaults
      * @return array
      */
-    protected function getRequestOptions(array $defaults = []) {
+    protected function getRequestOptions(array $defaults = [])
+    {
 
         $defaults = array_merge($this->getDefaultOptions(), $defaults);
 
@@ -86,7 +89,6 @@ abstract class SimplePageModule extends \tao_actions_SinglePageModule
             'detailed' => $detailed,
             'periodEnd' => $periodEnd
         );
-
     }
 
     /**
@@ -96,8 +98,8 @@ abstract class SimplePageModule extends \tao_actions_SinglePageModule
     {
         $today = new DateTime();
         return [
-            'page' => DataTableHelper::DEFAULT_PAGE,
-            'rows' => DataTableHelper::DEFAULT_ROWS,
+            'page' => Paginator::DEFAULT_PAGE,
+            'rows' => Paginator::DEFAULT_ROWS,
             'sortby' => 'id',
             'sortorder' => DataTableHelper::DEFAULT_SORT_ORDER,
             'filter' => null,
@@ -105,5 +107,4 @@ abstract class SimplePageModule extends \tao_actions_SinglePageModule
             'periodEnd' => $today->format('Y-m-d')
         ];
     }
-
 }

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,15 +18,15 @@
  * Copyright (c) 2019 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use common_exception_InconsistentData;
 use common_exception_MissingParameter;
 use common_exception_RestApi;
 use common_exception_ResourceNotFound;
 use oat\taoDeliveryRdf\model\DeliveryAssemblyService;
-use oat\taoTestCenter\model\eligibility\Eligibility;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\eligibility\Eligibility;
+use oat\taoTestCenterRostering\model\EligibilityService;
 
 class RestEligibilities extends AbstractRestController
 {
@@ -42,7 +43,7 @@ class RestEligibilities extends AbstractRestController
 
     /**
      * @OA\Get(
-     *     path="/taoTestCenter/api/eligibilities",
+     *     path="/taoTestCenterRostering/api/eligibilities",
      *     tags={"eligibilities"},
      *     summary="Search for eligibilities",
      *     description="Search for eligibilities",

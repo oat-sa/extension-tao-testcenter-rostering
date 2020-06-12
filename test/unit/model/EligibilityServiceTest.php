@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,15 +18,15 @@
  * Copyright (c) 2019 (original work) Open Assessment Technologies SA ;
  */
 
-namespace oat\taoTestCenter\test\unit\model;
+namespace oat\taoTestCenterRostering\test\unit\model;
 
 use core_kernel_classes_Class;
 use core_kernel_classes_Resource;
 use oat\generis\model\data\Ontology;
 use oat\generis\model\resource\exception\DuplicateResourceException;
 use oat\generis\test\TestCase;
-use oat\taoTestCenter\model\EligibilityService;
-use oat\taoTestCenter\model\TestCenterAssignment;
+use oat\taoTestCenterRostering\model\EligibilityService;
+use oat\taoTestCenterRostering\model\TestCenterAssignment;
 use oat\generis\test\MockObject;
 
 class EligibilityServiceTest extends TestCase
@@ -60,7 +61,7 @@ class EligibilityServiceTest extends TestCase
      */
     private $testCenterAssignmentMock;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         parent::setUp();
         $this->eligibilityService = new EligibilityService([]);
@@ -145,4 +146,3 @@ class EligibilityServiceTest extends TestCase
         $this->eligibilityService->deleteEligibilitiesByDelivery('uri');
     }
 }
-

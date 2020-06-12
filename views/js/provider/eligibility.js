@@ -37,7 +37,7 @@ define([
      */
     var request = function request(action, parameters){
         return $.ajax({
-            url : helpers._url(action, 'TestCenterManager', 'taoTestCenter'),
+            url : helpers._url(action, 'TestCenterManager', 'taoTestCenterRostering'),
             data :  parameters,
             dataType : 'json',
             type : 'POST'

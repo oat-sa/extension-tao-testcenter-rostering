@@ -1,23 +1,25 @@
 <?php
-/**  
+
+/**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * as published by the Free Software Foundation; under version 2
  * of the License (non-upgradable).
- * 
+ *
  * This program is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU General Public License
  * along with this program; if not, write to the Free Software
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301, USA.
- * 
+ *
  * Copyright (c) 2015 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
- * 
+ *
  */
-namespace oat\taoTestCenter\model;
+
+namespace oat\taoTestCenterRostering\model;
 
 use oat\tao\model\TaoOntology;
 use oat\taoDeliveryRdf\model\GroupAssignment;
@@ -28,7 +30,7 @@ use oat\generis\model\OntologyAwareTrait;
  * Class TestCenterAssignment
  * @access public
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
- * @package oat\taoTestCenter\model
+ * @package oat\taoTestCenterRoastering\model
  */
 class TestCenterAssignment extends GroupAssignment
 {
@@ -61,7 +63,7 @@ class TestCenterAssignment extends GroupAssignment
     public function assign($testTakerIds, $assignment)
     {
         $property = $this->getProperty(self::PROPERTY_TESTTAKER_ASSIGNED);
-        foreach($testTakerIds as $testTakerId) {
+        foreach ($testTakerIds as $testTakerId) {
             $this->getResource($testTakerId)->setPropertyValue($property, $assignment);
         }
     }
@@ -76,7 +78,7 @@ class TestCenterAssignment extends GroupAssignment
     public function unassign($testTakerIds, $assignment)
     {
         $property = $this->getProperty(self::PROPERTY_TESTTAKER_ASSIGNED);
-        foreach($testTakerIds as $testTakerId) {
+        foreach ($testTakerIds as $testTakerId) {
             $this->getResource($testTakerId)->removePropertyValue($property, $assignment);
         }
     }
@@ -92,9 +94,10 @@ class TestCenterAssignment extends GroupAssignment
         $instances = $this->getClass(TaoOntology::SUBJECT_CLASS_URI)->searchInstances(
             [
               self::PROPERTY_TESTTAKER_ASSIGNED => $assignment->getUri()
-            ],['recursive' => true, 'like' => false]
+            ],
+            ['recursive' => true, 'like' => false]
         );
-        foreach($instances as $testTaker) {
+        foreach ($instances as $testTaker) {
             $testTaker->removePropertyValue($this->getProperty(self::PROPERTY_TESTTAKER_ASSIGNED), $assignment);
         }
     }
@@ -109,7 +112,7 @@ class TestCenterAssignment extends GroupAssignment
         $deliveryProp = $this->getProperty(EligibilityService::PROPERTY_DELIVERY_URI);
 
         //check for guest access mode
-        if($this->isDeliveryGuestUser($user) && $this->hasDeliveryGuestAccess($delivery)){
+        if ($this->isDeliveryGuestUser($user) && $this->hasDeliveryGuestAccess($delivery)) {
             return true;
         }
 

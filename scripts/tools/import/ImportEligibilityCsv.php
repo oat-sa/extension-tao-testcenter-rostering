@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,14 +18,14 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA;
  */
 
-namespace oat\taoTestCenter\scripts\tools\import;
+namespace oat\taoTestCenterRostering\scripts\tools\import;
 
 use oat\oatbox\extension\script\ScriptAction;
-use oat\taoTestCenter\model\import\EligibilityCsvImporterFactory;
-use oat\taoTestCenter\model\import\TestCenterCsvImporterFactory;
+use oat\taoTestCenterRostering\model\import\EligibilityCsvImporterFactory;
+use oat\taoTestCenterRostering\model\import\TestCenterCsvImporterFactory;
 
 /**
- * sudo -u www-data php index.php 'oat\taoTestCenter\scripts\tools\import\ImportEligibilityCsv' -f /txt.csv
+ * sudo -u www-data php index.php 'oat\taoTestCenterRostering\scripts\tools\import\ImportEligibilityCsv' -f /txt.csv
  */
 class ImportEligibilityCsv extends ScriptAction
 {
@@ -60,5 +61,4 @@ class ImportEligibilityCsv extends ScriptAction
 
         return $importer->import($this->getOption('file-path'), []);
     }
-
 }

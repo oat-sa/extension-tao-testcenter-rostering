@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,11 +18,11 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\model\import;
+namespace oat\taoTestCenterRostering\model\import;
 
 use oat\tao\model\import\service\ImporterFactory;
 
 class TestCenterCsvImporterFactory extends ImporterFactory
 {
-    const SERVICE_ID = 'taoTestCenter/testCenterCsvImporterFactory';
+    const SERVICE_ID = 'taoTestCenterRostering/testCenterCsvImporterFactory';
 }

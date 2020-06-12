@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,18 +19,18 @@
  *
  */
 
-namespace oat\taoTestCenter\model\gui;
+namespace oat\taoTestCenterRostering\model\gui;
 
 use oat\generis\model\user\UserRdf;
-use oat\taoTestCenter\model\gui\form\formFactory\FormFactory;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\gui\form\formFactory\FormFactory;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 /**
  * Class TestcenterAdministratorUserFormFactory
  *
  * Generate a form for assignation of Administrator to test center
  *
- * @package oat\taoTestCenter\model\gui
+ * @package oat\taoTestCenterRoastering\model\gui
  */
 class TestcenterAdministratorUserFormFactory extends FormFactory
 {
@@ -41,12 +42,13 @@ class TestcenterAdministratorUserFormFactory extends FormFactory
     {
         $form = parent::__invoke($testCenter);
         $form->setData('dataUrl', _url(
-            'getData', 'GenerisTree', 'tao',
+            'getData',
+            'GenerisTree',
+            'tao',
             http_build_query(['filterProperties' => [
                 UserRdf::PROPERTY_ROLES => [TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR]
             ]])
         ));
         return $form;
     }
-
 }

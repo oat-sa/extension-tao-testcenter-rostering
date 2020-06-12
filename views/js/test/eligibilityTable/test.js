@@ -19,7 +19,7 @@ define([
 
     'jquery',
     'lodash',
-    'taoTestCenter/component/eligibilityTable'
+    'taoTestCenterRostering/component/eligibilityTable'
 ], function($, _, eligibilityTableFactory) {
     'use strict';
 
@@ -92,7 +92,7 @@ define([
 
                 ready();
             })
-            .init({dataUrl: '/taoTestCenter/views/js/test/eligibilityTable/data.json'})
+            .init({dataUrl: '/taoTestCenterRostering/views/js/test/eligibilityTable/data.json'})
             .render($fixtureContainer);
     });
 
@@ -122,7 +122,7 @@ define([
 
                 ready();
             })
-            .init({dataUrl: '/taoTestCenter/views/js/test/eligibilityTable/data.json'})
+            .init({dataUrl: '/taoTestCenterRostering/views/js/test/eligibilityTable/data.json'})
             .render($fixtureContainer);
     });
 
@@ -154,7 +154,7 @@ define([
 
                 ready();
             })
-            .init({dataUrl: '/taoTestCenter/views/js/test/eligibilityTable/data.json'})
+            .init({dataUrl: '/taoTestCenterRostering/views/js/test/eligibilityTable/data.json'})
             .render($fixtureContainer);
     });
 });

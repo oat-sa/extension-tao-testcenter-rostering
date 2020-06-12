@@ -1,4 +1,5 @@
 <?php
+
 /*
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,15 +19,17 @@
  *
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
-use oat\taoTestCenter\helper\TestCenterHelper;
+use core_kernel_classes_Resource;
+use oat\oatbox\service\ServiceNotFoundException;
+use oat\taoTestCenterRostering\helper\TestCenterHelper;
 
 /**
- * Proctoring Diagnostic controller for the readiness check screen
+ * Diagnostic controller for the readiness check screen
  *
  * @author Open Assessment Technologies SA
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @license GPL-2.0
  *
  */
@@ -36,7 +39,8 @@ class Diagnostic extends SimplePageModule
      * Display the list of all readiness checks performed on the given test center
      * It also allows launching new ones.
      */
-    public function index(){
+    public function index()
+    {
         $testCenter = $this->getCurrentTestCenter();
         $requestOptions = $this->getRequestOptions();
 
@@ -50,7 +54,7 @@ class Diagnostic extends SimplePageModule
                 'installedextension' => \common_ext_ExtensionsManager::singleton()->isInstalled('ltiDeliveryProvider'),
             ),
             'pages/index.tpl',
-            'taoTestCenter'
+            'taoTestCenterRostering'
         );
     }
 
@@ -69,7 +73,7 @@ class Diagnostic extends SimplePageModule
                 'config' => TestCenterHelper::getDiagnosticConfig($testCenter),
             ),
             'pages/index.tpl',
-            'taoTestCenter'
+            'taoTestCenterRostering'
         );
     }
 
@@ -82,14 +86,12 @@ class Diagnostic extends SimplePageModule
     public function diagnosticData()
     {
         try {
-
             $testCenter = $this->getCurrentTestCenter();
             $requestOptions = $this->getRequestOptions();
             $this->returnJson(TestCenterHelper::getDiagnostics($testCenter, $requestOptions));
-
         } catch (ServiceNotFoundException $e) {
-            \common_Logger::w('No diagnostic service defined for proctoring');
-            $this->returnError('Proctoring interface not available');
+            \common_Logger::w('No diagnostic service defined');
+            $this->returnError('Interface not available');
         }
     }
 
@@ -108,7 +110,7 @@ class Diagnostic extends SimplePageModule
             'success' => TestCenterHelper::removeDiagnostic($testCenter, $id)
         ]);
     }
-    
+
     /**
      * Get the requested test center resource
      * Use this to identify which test center is currently being selected buy the proctor
@@ -118,12 +120,11 @@ class Diagnostic extends SimplePageModule
      */
     protected function getCurrentTestCenter()
     {
-        if($this->hasRequestParameter('testCenter')){
-    
+        if ($this->hasRequestParameter('testCenter')) {
             //get test center resource from its uri
             $testCenterUri           = $this->getRequestParameter('testCenter');
             return TestCenterHelper::getTestCenter($testCenterUri);
-        }else{
+        } else {
             //@todo use a better exception
             throw new \common_Exception('no current test center');
         }

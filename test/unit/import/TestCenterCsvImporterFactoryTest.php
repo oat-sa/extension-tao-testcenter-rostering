@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,10 +18,10 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\test\unit\import;
+namespace oat\taoTestCenterRostering\test\unit\import;
 
 use oat\tao\model\import\service\ImportServiceInterface;
-use oat\taoTestCenter\model\import\TestCenterCsvImporterFactory;
+use oat\taoTestCenterRostering\model\import\TestCenterCsvImporterFactory;
 use oat\generis\test\TestCase;
 
 class TestCenterCsvImporterFactoryTest extends TestCase
@@ -52,7 +53,7 @@ class TestCenterCsvImporterFactoryTest extends TestCase
                             ),
                         );
                         break;
-                    case'default-schema':
+                    case 'default-schema':
                         return array(
                             'mandatory' => array(
                                 'label' => 'http://www.w3.org/2000/01/rdf-schema#label',

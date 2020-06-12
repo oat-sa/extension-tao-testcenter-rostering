@@ -20,16 +20,16 @@
  *
  */
 
-namespace oat\taotestCenter\test\integration;
+namespace oat\taoTestCenterRostering\test\integration;
 
-include_once dirname(__FILE__).'/../../../tao/includes/raw_start.php';
+include_once dirname(__FILE__) . '/../../../tao/includes/raw_start.php';
 
 use core_kernel_classes_Class;
 use core_kernel_classes_Property;
 use core_kernel_classes_Resource;
 use oat\generis\model\OntologyRdfs;
 use oat\tao\test\TaoPhpUnitTestRunner;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\TestCenterService;
 use oat\taoTestTaker\models\TestTakerService;
 
 
@@ -51,7 +51,7 @@ class TestCenterServiceTest extends TaoPhpUnitTestRunner
     /**
      * tests initialization
      */
-    public function setUp()
+    public function setUp(): void
     {
         \common_ext_ExtensionsManager::singleton()->getExtensionById('taoTestTaker');
         TaoPhpUnitTestRunner::initTest();

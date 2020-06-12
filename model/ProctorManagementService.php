@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,16 +19,16 @@
  *
  *
  */
-namespace oat\taoTestCenter\model;
+
+namespace oat\taoTestCenterRostering\model;
 
 use oat\oatbox\user\User;
 use core_kernel_classes_Resource;
-use core_kernel_classes_Class;
 use core_kernel_classes_Property;
 
 /**
  * Proctor management Service
- * 
+ *
  */
 class ProctorManagementService extends \tao_models_classes_GenerisService
 {
@@ -43,14 +44,15 @@ class ProctorManagementService extends \tao_models_classes_GenerisService
      * @param $testCenters
      * @return bool
      */
-    public function authorizeProctors($proctorsUri, $testCenters){
+    public function authorizeProctors($proctorsUri, $testCenters)
+    {
         $return = true;
         $property = new core_kernel_classes_Property(self::PROPERTY_AUTHORIZED_PROCTOR_URI);
-        foreach($proctorsUri as $proctorUri){
+        foreach ($proctorsUri as $proctorUri) {
             $proctor = new core_kernel_classes_Resource($proctorUri);
             $authorizedTestCenters = $proctor->getPropertyValues($property);
             $newTestCenters = array_diff($testCenters, $authorizedTestCenters);
-            if(!empty($newTestCenters)){
+            if (!empty($newTestCenters)) {
                 $propertiesValues = array(self::PROPERTY_AUTHORIZED_PROCTOR_URI => $newTestCenters);
                 $return &= $proctor->setPropertiesValues($propertiesValues);
             }
@@ -65,13 +67,14 @@ class ProctorManagementService extends \tao_models_classes_GenerisService
      * @param $testCenters
      * @return array list of unrevokable proctors
      */
-    public function unauthorizeProctors($proctorsUri, $testCenters){
+    public function unauthorizeProctors($proctorsUri, $testCenters)
+    {
         $return = true;
         $unrevokableProctors = [];
-        foreach($proctorsUri as $proctorUri){
+        foreach ($proctorsUri as $proctorUri) {
             $proctor = new core_kernel_classes_Resource($proctorUri);
-            foreach($testCenters as $testCenter){
-                if(!$proctor->removePropertyValue(new core_kernel_classes_Property(self::PROPERTY_AUTHORIZED_PROCTOR_URI), $testCenter)){
+            foreach ($testCenters as $testCenter) {
+                if (!$proctor->removePropertyValue(new core_kernel_classes_Property(self::PROPERTY_AUTHORIZED_PROCTOR_URI), $testCenter)) {
                     $unrevokableProctors[] = $proctor->getLabel();
                 }
             }
@@ -86,17 +89,18 @@ class ProctorManagementService extends \tao_models_classes_GenerisService
      * @param $testCenterAdminUri
      * @return bool
      */
-    public function assignProctors($proctorsUri, $testCenterAdminUri){
+    public function assignProctors($proctorsUri, $testCenterAdminUri)
+    {
         $return = true;
         $testCenterAdmin = new core_kernel_classes_Resource($testCenterAdminUri);
         $testCenters = $testCenterAdmin->getPropertyValues(new core_kernel_classes_Property(self::PROPERTY_ADMINISTRATOR_URI));
-        if(!empty($testCenters)){
+        if (!empty($testCenters)) {
             $propertiesValues = array(self::PROPERTY_ASSIGNED_PROCTOR_URI => $testCenters);
-            foreach($proctorsUri as $proctorUri){
+            foreach ($proctorsUri as $proctorUri) {
                 $proctor = new core_kernel_classes_Resource($proctorUri);
                 $return &= $proctor->setPropertiesValues($propertiesValues);
             }
-        }else{
+        } else {
             throw new \common_Exception('proctors cannot be assigned to a test center admin that has no authorized test center');
         }
         return (bool) $return;
@@ -115,21 +119,21 @@ class ProctorManagementService extends \tao_models_classes_GenerisService
         $testCentersAdmin = $testCenterAdmin->getPropertyValues(new core_kernel_classes_Property(self::PROPERTY_ADMINISTRATOR_URI));
 
         //get all sub test centers
-        foreach($testCentersAdmin as $testCenter){
+        foreach ($testCentersAdmin as $testCenter) {
             $children = $testCenterService->getSubTestCenters($testCenter);
             $testCentersAdmin = array_merge($testCentersAdmin, $children);
         }
 
         //get test centers in common between administrable test centers and test centers list
-        if(!empty($testCenters)){
+        if (!empty($testCenters)) {
             //get parent testCenter
             $allTestCenters = $testCenters;
-            foreach($testCenters as $testCenter){
+            foreach ($testCenters as $testCenter) {
                 $parents = $testCenterService->getRootClass()->searchInstances(
                     array(
                         TestCenterService::PROPERTY_CHILDREN_URI => $testCenter
-                    )
-                    ,['recursive' => true]
+                    ),
+                    ['recursive' => true]
                 );
                 $parents = array_keys($parents);
                 $allTestCenters = array_merge($allTestCenters, $parents);
@@ -137,14 +141,14 @@ class ProctorManagementService extends \tao_models_classes_GenerisService
             $testCentersAdmin = array_intersect($testCentersAdmin, $allTestCenters);
         }
         $users = array();
-        foreach($testCentersAdmin as $testCenterUri){
+        foreach ($testCentersAdmin as $testCenterUri) {
             $assignedProctors = $this->getUserClass()->searchInstances(array(
                 self::PROPERTY_ASSIGNED_PROCTOR_URI => $testCenterUri
             ), array(
                 'recursive' => true,
                 'like' => false
             ));
-            $users = array_merge($users , $assignedProctors);
+            $users = array_merge($users, $assignedProctors);
         }
 
         return $users;
@@ -155,7 +159,8 @@ class ProctorManagementService extends \tao_models_classes_GenerisService
      * @param $testCenters
      * @return array(proctorUri => array(testcenters))
      */
-    public function getProctorsAuthorization($testCenters){
+    public function getProctorsAuthorization($testCenters)
+    {
         $users = array();
 
         $authorizedProctors = $this->getUserClass()->searchInstances(array(
@@ -166,14 +171,14 @@ class ProctorManagementService extends \tao_models_classes_GenerisService
         ));
 
         /** @var core_kernel_classes_Resource $proctor */
-        foreach($authorizedProctors as $proctor){
+        foreach ($authorizedProctors as $proctor) {
             $testCenters = $proctor->getPropertyValues(new core_kernel_classes_Property(self::PROPERTY_AUTHORIZED_PROCTOR_URI));
             $users[$proctor->getUri()] = $testCenters;
         }
 
         return $users;
     }
-    
+
     private function getUserClass()
     {
         return \tao_models_classes_UserService::singleton()->getRootClass();

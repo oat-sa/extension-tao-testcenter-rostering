@@ -25,10 +25,10 @@ define([
     'uri',
     'ui/component',
     'generis.tree.select',
-    'tpl!taoTestCenter/component/eligibilityEditor/layout',
+    'tpl!taoTestCenterRostering/component/eligibilityEditor/layout',
     'ui/feedback',
     'ui/modal',
-    'css!taoTestCenterCss/eligibilityEditor'
+    'css!taoTestCenterRosteringCss/eligibilityEditor'
 ], function($, _, __, module, url, uri, component, GenerisTreeSelectClass, layoutTpl, feedback){
     'use strict';
 
@@ -43,7 +43,7 @@ define([
         deliveriesOrder : 'http://www.w3.org/2000/01/rdf-schema#label',
         deliveriesOrderdir : 'asc',
         isDacEnabled: false,
-        testTakerDataUrl :  url.route('getData', 'TestCenterManager', 'taoTestCenter')
+        testTakerDataUrl :  url.route('getData', 'TestCenterManager', 'taoTestCenterRostering')
     };
 
     config = _.defaults({}, module.config(), config);

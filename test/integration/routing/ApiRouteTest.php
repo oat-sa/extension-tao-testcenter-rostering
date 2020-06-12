@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,46 +19,46 @@
  *
  */
 
-namespace oat\taoTestCenter\test\integration\routing;
+namespace oat\taoTestCenterRostering\test\integration\routing;
 
 use common_ext_Extension;
 use oat\generis\test\TestCase;
-use oat\taoTestCenter\model\routing\ApiRoute;
-use oat\taoTestCenter\controller\RestEligibility;
+use oat\taoTestCenterRostering\model\routing\ApiRoute;
+use oat\taoTestCenterRostering\controller\RestEligibility;
 use GuzzleHttp\Psr7\ServerRequest;
 
 /**
  * Class ApiRouteTest
- * @package oat\taoTestCenter\test\unit\routing
+ * @package oat\taoTestCenterRoastering\test\unit\routing
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class ApiRouteTest extends TestCase
 {
     public function testResolve()
     {
-        $route = new ApiRoute(new common_ext_Extension('taoTestCenter'), 'taoTestCenter/api', []);
-        $path = $route->resolve(new ServerRequest('GET', '/taoTestCenter/api/eligibility'));
+        $route = new ApiRoute(new common_ext_Extension('taoTestCenterRostering'), 'taoTestCenterRostering/api', []);
+        $path = $route->resolve(new ServerRequest('GET', '/taoTestCenterRostering/api/eligibility'));
         $this->assertEquals(RestEligibility::class . '@get', $path);
 
-        $path = $route->resolve(new ServerRequest('PUT', '/taoTestCenter/api/eligibility'));
+        $path = $route->resolve(new ServerRequest('PUT', '/taoTestCenterRostering/api/eligibility'));
         $this->assertEquals(RestEligibility::class . '@put', $path);
 
-        $path = $route->resolve(new ServerRequest('POST', '/taoTestCenter/api/eligibility'));
+        $path = $route->resolve(new ServerRequest('POST', '/taoTestCenterRostering/api/eligibility'));
         $this->assertEquals(RestEligibility::class . '@post', $path);
 
-        $path = $route->resolve(new ServerRequest('DELETE', '/taoTestCenter/api/eligibility'));
+        $path = $route->resolve(new ServerRequest('DELETE', '/taoTestCenterRostering/api/eligibility'));
         $this->assertEquals(RestEligibility::class . '@delete', $path);
 
-        $path = $route->resolve(new ServerRequest('GET', '/taoTestCenter/api/foo'));
+        $path = $route->resolve(new ServerRequest('GET', '/taoTestCenterRostering/api/foo'));
         $this->assertEquals(null, $path);
 
         $path = $route->resolve(new ServerRequest('GET', '/foo/api/eligibility'));
         $this->assertEquals(null, $path);
 
-        $path = $route->resolve(new ServerRequest('GET', '/taoTestCenter/foo/eligibility'));
+        $path = $route->resolve(new ServerRequest('GET', '/taoTestCenterRostering/foo/eligibility'));
         $this->assertEquals(null, $path);
 
-        $path = $route->resolve(new ServerRequest('PATCH', '/taoTestCenter/api/eligibility'));
+        $path = $route->resolve(new ServerRequest('PATCH', '/taoTestCenterRostering/api/eligibility'));
         $this->assertEquals(null, $path);
     }
 }

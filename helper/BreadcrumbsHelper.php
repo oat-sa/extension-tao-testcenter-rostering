@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,11 +20,11 @@
  *
  */
 
-namespace oat\taoTestCenter\helper;
+namespace oat\taoTestCenterRostering\helper;
 
 use \core_kernel_classes_Resource;
 use oat\oatbox\service\ServiceManager;
-use oat\taoProctoring\model\textConverter\ProctoringTextConverter;
+use oat\taoTestCenterRostering\model\textConverter\TestCentersTextConverter;
 
 /**
  * Allow creating breakcrumbs easily
@@ -33,9 +34,9 @@ class BreadcrumbsHelper
     /**
      * Tool to change text denomination
      *
-     * @var ProctoringTextConverter
+     * @var TestCentersTextConverter
      */
-    static protected $textConverterService;
+    protected static $textConverterService;
 
     /**
      * Create breadcrumb for Delivery::index
@@ -51,7 +52,7 @@ class BreadcrumbsHelper
             'url' => _url('index', 'DeliverySelection', 'taoProctoring', array('context' => $testCenter->getUri())),
             'label' => __('Sessions')
         );
-        if(count($alternativeRoutes)){
+        if (count($alternativeRoutes)) {
             $breadcrumbs['entries'] = $alternativeRoutes;
         }
         return $breadcrumbs;
@@ -74,7 +75,7 @@ class BreadcrumbsHelper
             'label' => $delivery->getLabel()
         );
 
-        $otherDeliveries = array_filter($deliveries, function($value) use ($delivery) {
+        $otherDeliveries = array_filter($deliveries, function ($value) use ($delivery) {
             return $value['id'] != $delivery->getUri();
         });
 
@@ -101,7 +102,7 @@ class BreadcrumbsHelper
             'label' =>  __('All Sessions')
         );
 
-        $otherDeliveries = array_filter($deliveries, function($value) {
+        $otherDeliveries = array_filter($deliveries, function ($value) {
             return $value['id'] != 'all';
         });
 
@@ -135,14 +136,12 @@ class BreadcrumbsHelper
             )
         );
 
-        $currentPage = array_filter($entries, function($value) use($page) {
+        $currentPage = array_filter($entries, function ($value) use ($page) {
             return $value['id'] == $page;
-
         });
 
-        $otherPages = array_filter($entries, function($value) use($page) {
+        $otherPages = array_filter($entries, function ($value) use ($page) {
             return $value['id'] != $page;
-
         });
 
         $breadcrumbs = current($currentPage);
@@ -165,7 +164,7 @@ class BreadcrumbsHelper
             'url' => _url('index', 'Diagnostic', null, array('testCenter' => $testCenter->getUri())),
             'label' => __('Readiness check')
         );
-        if(count($alternativeRoutes)){
+        if (count($alternativeRoutes)) {
             $breadcrumbs['entries'] = $alternativeRoutes;
         }
         return $breadcrumbs;
@@ -185,7 +184,7 @@ class BreadcrumbsHelper
             'url' => _url('index', 'Reporting', null, array('testCenter' => $testCenter->getUri())),
             'label' => __('Assessment Activity Reporting')
         );
-        if(count($alternativeRoutes)){
+        if (count($alternativeRoutes)) {
             $breadcrumbs['entries'] = $alternativeRoutes;
         }
         return $breadcrumbs;
@@ -218,18 +217,6 @@ class BreadcrumbsHelper
         return $breadcrumbs;
     }
 
-    /**
-     * Create breadcrumb for ProctorManager::index
-     * @return array
-     */
-    public static function proctorManager()
-    {
-        return array(
-            'id' => 'proctorManager',
-            'url' => _url('index', 'ProctorManager'),
-            'label' => self::convert('Manage Proctors')
-        );
-    }
 
     /**
      * Convert a text $key by TextConverterService content
@@ -237,10 +224,10 @@ class BreadcrumbsHelper
      * @param $key
      * @return mixed
      */
-    static protected function convert($key)
+    protected static function convert($key)
     {
         if (! self::$textConverterService) {
-            self::$textConverterService = ServiceManager::getServiceManager()->get(ProctoringTextConverter::SERVICE_ID);
+            self::$textConverterService = ServiceManager::getServiceManager()->get(TestCentersTextConverter::SERVICE_ID);
         }
         return self::$textConverterService->get($key);
     }

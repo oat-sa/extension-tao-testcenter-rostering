@@ -24,13 +24,13 @@ define([
     'helpers',
     'uri',
     'ui/component',
-    'tpl!taoTestCenter/component/eligibilityImport/layout',
+    'tpl!taoTestCenterRostering/component/eligibilityImport/layout',
     'ui/feedback',
     'ui/report',
     'layout/loading-bar',
     'async',
     'ui/modal',
-    'css!taoTestCenterCss/eligibilityEditor',
+    'css!taoTestCenterRosteringCss/eligibilityEditor',
     'ui/uploader'
 ], function($, _, __, module, helpers, uri, component, layoutTpl, feedback, reportFactory,loadingBar, async){
     'use strict';
@@ -51,7 +51,7 @@ define([
     var eligibilityImportFactory = function eligibilityImportFactory(datatable, testCenterId) {
 
         var config = {
-            uploadUrl :  helpers._url('import', 'TestCenterManager', 'taoTestCenter', {uri:testCenterId})
+            uploadUrl :  helpers._url('import', 'TestCenterManager', 'taoTestCenterRostering', {uri:testCenterId})
         };
 
         if(_.isEmpty(testCenterId)){

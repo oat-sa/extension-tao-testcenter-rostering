@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,12 +18,13 @@
  * Copyright (c) 2016 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  *
  */
-namespace oat\taoTestCenter\scripts\install;
+
+namespace oat\taoTestCenterRostering\scripts\install;
 
 use Doctrine\DBAL\Types\Type;
 use oat\oatbox\service\ServiceManager;
 use Doctrine\DBAL\Schema\SchemaException;
-use oat\taoTestCenter\model\DiagnosticStorage;
+use oat\taoTestCenterRostering\model\DiagnosticStorage;
 use oat\oatbox\extension\InstallAction;
 use oat\taoClientDiagnostic\model\storage\Storage;
 use oat\taoClientDiagnostic\model\storage\PaginatedSqlStorage;
@@ -142,8 +144,7 @@ class CreateDiagnosticTable extends InstallAction
             foreach ($queries as $query) {
                 $persistence->exec($query);
             }
-
-        } catch(SchemaException $e) {
+        } catch (SchemaException $e) {
             \common_Logger::i('Database Schema already up to date. /' . $e->getMessage());
         }
         return new \common_report_Report(\common_report_Report::TYPE_SUCCESS, 'Diagnostic successfully created');

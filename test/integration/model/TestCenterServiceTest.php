@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -19,19 +20,18 @@
  *
  */
 
-namespace oat\taoTestCenter\test\integration\model;
+namespace oat\taoTestCenterRostering\test\integration\model;
 
 use oat\generis\test\GenerisTestCase;
 use oat\tao\model\TaoOntology;
-use oat\taoTestCenter\model\exception\TestCenterException;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\exception\TestCenterException;
+use oat\taoTestCenterRostering\model\TestCenterService;
 use oat\oatbox\user\User;
-use oat\taoProctoring\model\ProctorService;
-use oat\taoTestCenter\model\ProctorManagementService;
+use oat\taoTestCenterRostering\model\ProctorManagementService;
 
 /**
  * Class TestCenterServiceTest
- * @package oat\taoTestCenter\test\unit\model
+ * @package oat\taoTestCenterRoastering\test\unit\model
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class TestCenterServiceTest extends GenerisTestCase
@@ -50,15 +50,6 @@ class TestCenterServiceTest extends GenerisTestCase
         $service->assignUser($this->tc, $user, $service->getProperty(ProctorManagementService::PROPERTY_ADMINISTRATOR_URI));
     }
 
-    public function testAssignUser()
-    {
-        $service = $this->getService();
-        $user = $this->getUserMock('proctor', $service);
-        $this->assertTrue($service->assignUser($this->tc, $user, $service->getProperty(ProctorService::ROLE_PROCTOR)));
-        $assignedTc = $this->userResource->getOnePropertyValue($service->getProperty(ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI));
-        $this->assertEquals($assignedTc->getUri(), $this->tc->getUri());
-    }
-
     /**
      * @dataProvider userRoleDataProvider
      */
@@ -74,8 +65,6 @@ class TestCenterServiceTest extends GenerisTestCase
     {
         $service = $this->getService();
         $user = $this->getUserMock('proctor', $service);
-        $this->assertTrue($service->assignUser($this->tc, $user, $service->getProperty(ProctorService::ROLE_PROCTOR)));
-        $this->assertTrue($service->unassignUser($this->tc, $user, $service->getProperty(ProctorService::ROLE_PROCTOR)));
 
         $assignedTc = $this->userResource->getOnePropertyValue($service->getProperty(ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI));
         $this->assertNull($assignedTc);
@@ -87,7 +76,6 @@ class TestCenterServiceTest extends GenerisTestCase
     public function userRoleDataProvider()
     {
         return [
-            ['proctor', ProctorService::ROLE_PROCTOR],
             ['admin', TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR],
         ];
     }
@@ -115,11 +103,7 @@ class TestCenterServiceTest extends GenerisTestCase
         $this->userResource = $userClass->createInstance($role);
         $user->method('getIdentifier')->willReturn($this->userResource->getUri());
 
-        if ($role === 'proctor') {
-            $user->method('getRoles')->willReturn([
-                ProctorService::ROLE_PROCTOR,
-            ]);
-        } else if ($role === 'admin') {
+      if ($role === 'admin') {
             $user->method('getRoles')->willReturn([
                 TestCenterService::ROLE_TESTCENTER_ADMINISTRATOR
             ]);

@@ -33,9 +33,9 @@ define([
     'i18n',
     'ui/component',
     'helpers',
-    'tpl!taoTestCenter/component/eligibilityTable/status',
-    'tpl!taoTestCenter/component/eligibilityTable/actions',
-    'css!taoTestCenterCss/eligibilityTable.css',
+    'tpl!taoTestCenterRostering/component/eligibilityTable/status',
+    'tpl!taoTestCenterRostering/component/eligibilityTable/actions',
+    'css!taoTestCenterRosteringCss/eligibilityTable.css',
     'ui/datatable'
 ], function($, _, __, component, helpers, statusTpl, actionsTpl){
     'use strict';
@@ -112,7 +112,7 @@ define([
          */
         tableComponent = component({}, {
                 //config can be changed
-                dataUrl : helpers._url('getEligibilities', 'TestCenterManager', 'taoTestCenter', { uri : testCenterId })
+                dataUrl : helpers._url('getEligibilities', 'TestCenterManager', 'taoTestCenterRostering', { uri : testCenterId })
             })
             .on('render', function(){
                 var self = this;

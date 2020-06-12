@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -17,18 +18,18 @@
  * Copyright (c) 2018 (original work) Open Assessment Technologies SA (under the project TAO-PRODUCT);
  */
 
-namespace oat\taoTestCenter\controller;
+namespace oat\taoTestCenterRostering\controller;
 
 use common_exception_MissingParameter;
 use common_exception_RestApi;
 use common_exception_ResourceNotFound;
 use Exception;
-use oat\taoTestCenter\model\exception\TestCenterException;
-use oat\taoTestCenter\model\TestCenterService;
+use oat\taoTestCenterRostering\model\exception\TestCenterException;
+use oat\taoTestCenterRostering\model\TestCenterService;
 
 /**
  * Class RestTestCenterUsers
- * @package oat\taoTestCenter\controller
+ * @package oat\taoTestCenterRoastering\controller
  * @author Aleh Hutnikau, <hutnikau@1pt.com>
  */
 class RestTestCenterUsers extends AbstractRestController
@@ -38,7 +39,7 @@ class RestTestCenterUsers extends AbstractRestController
 
     /**
      * @OA\Post(
-     *     path="/taoTestCenter/api/testCenterUsers",
+     *     path="/taoTestCenterRostering/api/testCenterUsers",
      *     tags={"testCenter"},
      *     summary="Assign user to the test center",
      *     description="Assign user to the test center",
@@ -136,7 +137,7 @@ class RestTestCenterUsers extends AbstractRestController
 
     /**
      * @OA\Delete(
-     *     path="/taoTestCenter/api/testCenterUsers",
+     *     path="/taoTestCenterRostering/api/testCenterUsers",
      *     tags={"testCenter"},
      *     summary="Remove user from the test center",
      *     description="Remove user from the test center",

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,7 +19,8 @@
  *
  *
  */
-namespace oat\taoTestCenter\model;
+
+namespace oat\taoTestCenterRostering\model;
 
 use core_kernel_classes_Class;
 use core_kernel_classes_Property;
@@ -29,11 +31,10 @@ use oat\tao\model\ClassServiceTrait;
 use oat\tao\model\GenerisServiceTrait;
 use oat\oatbox\service\ConfigurableService;
 use oat\oatbox\service\ServiceManager;
-use oat\taoTestCenter\model\exception\TestCenterException;
-use oat\taoProctoring\model\ProctorService;
+use oat\taoTestCenterRostering\model\exception\TestCenterException;
 
 /**
- * TestCenter Service for proctoring
+ * TestCenter Service for
  */
 class TestCenterService extends ConfigurableService
 {
@@ -42,7 +43,7 @@ class TestCenterService extends ConfigurableService
     }
     use GenerisServiceTrait;
 
-    const SERVICE_ID = 'taoTestCenter/TestCenterService';
+    const SERVICE_ID = 'taoTestCenterRostering/TestCenterService';
 
     const CLASS_URI = 'http://www.tao.lu/Ontologies/TAOTestCenter.rdf#TestCenter';
 
@@ -152,7 +153,7 @@ class TestCenterService extends ConfigurableService
         );
         $subCenters = [];
 
-        foreach($testCenters as $testCenter){
+        foreach ($testCenters as $testCenter) {
             $subCenters = array_merge($subCenters, $this->getSubTestCenters($testCenter));
         }
 
@@ -160,7 +161,7 @@ class TestCenterService extends ConfigurableService
         $adminTestCenters = $user->getPropertyValues(ProctorManagementService::PROPERTY_ADMINISTRATOR_URI);
         $adminSubCenters = [];
 
-        foreach($adminTestCenters as $testCenter){
+        foreach ($adminTestCenters as $testCenter) {
             $adminSubCenters = array_merge($adminSubCenters, $this->getSubTestCenters($testCenter));
         }
 
@@ -171,7 +172,7 @@ class TestCenterService extends ConfigurableService
             $adminSubCenters
         );
 
-        return array_map(function($uri) {
+        return array_map(function ($uri) {
             return new core_kernel_classes_Resource($uri);
         }, $testCenters);
     }
@@ -184,12 +185,11 @@ class TestCenterService extends ConfigurableService
      */
     public function getSubTestCenters($testCenter)
     {
-        if(! $testCenter instanceof core_kernel_classes_Resource){
+        if (! $testCenter instanceof core_kernel_classes_Resource) {
             $testCenter = new core_kernel_classes_Resource($testCenter);
         }
         $childrenProperty = new core_kernel_classes_Property(self::PROPERTY_CHILDREN_URI);
         return $testCenter->getPropertyValues($childrenProperty);
-
     }
 
     /**
@@ -255,13 +255,9 @@ class TestCenterService extends ConfigurableService
             case self::ROLE_TESTCENTER_ADMINISTRATOR:
                 $prop = $this->getProperty(ProctorManagementService::PROPERTY_ADMINISTRATOR_URI);
                 break;
-            case ProctorService::ROLE_PROCTOR:
-                $prop = $this->getProperty(ProctorManagementService::PROPERTY_ASSIGNED_PROCTOR_URI);
-                break;
             default:
                 throw new TestCenterException(__('Role is not allowed.'));
         }
         return $prop;
     }
-
 }

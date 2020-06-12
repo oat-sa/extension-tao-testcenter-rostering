@@ -18,12 +18,12 @@
             require(['/tao/ClientConfig/config'], function(){
                 require.config({
                     config : {
-                        context : { 
+                        context : {
                             taobase_www : '/tao/views/'
                         }
                     }
                  });
-                require(['taoTestCenter/test/eligibilityEditor/test'], function(){
+                require(['taoTestCenterRostering/test/eligibilityEditor/test'], function(){
                     QUnit.start();
                 });
             });

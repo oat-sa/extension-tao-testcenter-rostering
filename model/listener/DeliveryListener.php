@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -16,11 +17,12 @@
  *
  * Copyright (c) 2019 (original work) Open Assessment Technologies SA ;
  */
-namespace oat\taoTestCenter\model\listener;
+
+namespace oat\taoTestCenterRostering\model\listener;
 
 use oat\oatbox\service\ConfigurableService;
 use oat\taoDeliveryRdf\model\event\DeliveryRemovedEvent;
-use oat\taoTestCenter\model\EligibilityService;
+use oat\taoTestCenterRostering\model\EligibilityService;
 
 /**
  * Class SyncStatusListener
@@ -28,7 +30,7 @@ use oat\taoTestCenter\model\EligibilityService;
  */
 class DeliveryListener extends ConfigurableService
 {
-    const SERVICE_ID = 'taoTestCenter/DeliveryListener';
+    const SERVICE_ID = 'taoTestCenterRostering/DeliveryListener';
 
     /**
      * @param DeliveryRemovedEvent $event

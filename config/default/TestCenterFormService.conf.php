@@ -1,5 +1,5 @@
 <?php
 
-use oat\taoTestCenter\model\TestCenterFormService;
+use oat\taoTestCenterRostering\model\TestCenterFormService;
 
 return new TestCenterFormService([]);

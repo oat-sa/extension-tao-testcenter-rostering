@@ -12,7 +12,7 @@ use oat\tao\model\theme\Theme;
         <?= tao_helpers_Scriptloader::render() ?>
         <link rel="stylesheet" href="<?= Template::css('tao-main-style.css', 'tao') ?>" />
         <link rel="stylesheet" href="<?= Template::css('tao-3.css', 'tao') ?>" />
-        <link rel="stylesheet" href="<?= Template::css('testcenter.css', 'taoTestCenter') ?>"/>
+        <link rel="stylesheet" href="<?= Template::css('testcenter.css', 'taoTestCenterRostering') ?>"/>
         <link rel="stylesheet" href="<?= Layout::getThemeStylesheet(Theme::CONTEXT_FRONTOFFICE) ?>" />
         <link rel="shortcut icon" href="<?= Template::img('favicon.ico', 'tao') ?>"/>
 
@@ -29,7 +29,7 @@ use oat\tao\model\theme\Theme;
                     <div class="settings-menu">
                         <ul class="clearfix plain">
                             <li data-control="home">
-                                <a id="home" href="<?= has_data('homeUrl') ? get_data('homeUrl') : _url('index', 'TestCenter', 'taoTestCenter')?>">
+                                <a id="home" href="<?= has_data('homeUrl') ? get_data('homeUrl') : _url('index', 'TestCenter', 'taoTestCenterRostering')?>">
                                     <span class="icon-home"></span>
                                 </a>
                             </li>

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
@@ -18,11 +19,11 @@
  *
  */
 
-namespace oat\taoTestCenter\model\gui\form\formFactory;
+namespace oat\taoTestCenterRostering\model\gui\form\formFactory;
 
 use oat\generis\model\OntologyAwareTrait;
 use oat\oatbox\service\ConfigurableService;
-use oat\taoProctoring\model\textConverter\ProctoringTextConverter;
+use oat\taoTestCenterRostering\model\textConverter\TestCentersTextConverter;
 
 class FormFactory extends ConfigurableService implements FormFactoryInterface
 {
@@ -97,7 +98,7 @@ class FormFactory extends ConfigurableService implements FormFactoryInterface
 
         $this->property = $this->getProperty($options['property']);
         $this->title = $options['title'];
-        $this->isReversed = (boolean) $options['isReversed'];
+        $this->isReversed = (bool) $options['isReversed'];
 
         return $this;
     }
@@ -116,11 +117,10 @@ class FormFactory extends ConfigurableService implements FormFactoryInterface
     /**
      * Get the TextConverterService
      *
-     * @return ProctoringTextConverter
+     * @return TestCentersTextConverter
      */
     protected function getTextConverterService()
     {
-        return $this->getServiceLocator()->get(ProctoringTextConverter::SERVICE_ID);
+        return $this->getServiceLocator()->get(TestCentersTextConverter::SERVICE_ID);
     }
-
 }
