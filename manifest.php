@@ -38,16 +38,7 @@ return [
     'label' => 'Test Center',
     'description' => 'Test-centers',
     'license' => 'GPL-2.0',
-    'version' => '1.1.0',
     'author' => 'Open Assessment Technologies SA',
-    'requires' => [
-        'taoDelivery'    => '>=12.5.0',
-        'generis'        => '>=12.5.0',
-        'tao'            => '>=35.5.1',
-        'taoTestTaker'   => '>=4.0.0',
-        'taoDeliveryRdf' => '>=6.0.0',
-        'taoClientDiagnostic' => '>=7.5.0',
-    ],
     'managementRole' => TestCenterService::ROLE_TESTCENTER_MANAGER,
     'acl' => [
         ['grant', TestCenterService::ROLE_TESTCENTER_MANAGER, TestCenterManager::class],
